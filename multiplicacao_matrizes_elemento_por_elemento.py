@@ -115,47 +115,6 @@ class manim_mobject_matrix_001a(Scene):
                       FadeOut(b_c1), FadeOut(eq1), Transform(o1, f2))
 
         self.play(FadeOut(equal), FadeOut(image_matrix), FadeOut(multi), FadeOut(kernel_matrix))
-        summ = Tex(r"sum", color=BLUE)
-        summ.shift(UP)
-        summ.shift(LEFT*3)
-
-        self.play(Write(summ))
-        self.play(FadeOut(op), ApplyMethod(mm.next_to, summ))
-
-        ii = VGroup(*mm)
-        m1 = VGroup(*ii[0])
-        len_mm = len(m1)
-        count = 0
-        flag = True
-        for i in m1.copy():
-            count = count + 1
-            i1 = i.copy()
-            ss = sum_oppp.copy()
-            if flag:
-                p1 = plus.copy()
-                i1.set_color(RED)
-                self.play(ApplyMethod(i1.shift, DOWN*4), **play_kw)
-                self.play(ApplyMethod(i1.shift, LEFT * 5), **play_kw)
-                p1.next_to(i1)
-                self.play(Write(p1), **play_kw)
-                flag = False
-            else:
-                p1 = p1.copy()
-                i1.set_color(RED)
-                self.play(ApplyMethod(i1.next_to, p1), **play_kw)
-                if count >= len_mm:
-                    equal.next_to(i1)
-                    self.play(Write(equal), **play_kw)
-                    ss.next_to(equal)
-                    self.play(Write(ss), **play_kw)
-                    equal.set_color(YELLOW)
-                    self.play(ApplyMethod(equal.next_to, mm), **play_kw)
-                    ss.set_color(YELLOW)
-                    self.play(ApplyMethod(ss.next_to, equal), **play_kw)
-
-                else:
-                    p1.next_to(i1)
-                    self.play(Write(p1), **play_kw)
         self.wait(2)
         self.clear()
         self.wait(2)
