@@ -1,50 +1,49 @@
-from manimlib.scene.scene import Scene
-from manimlib.mobject.matrix import Matrix
-from manimlib import *
+from manim.scene.scene import Scene
+from manim.mobject.matrix import Matrix
+from manim import *
 
 class manim_mobject_matrix_001a(Scene):
     def construct(self):
         sans = 'monospace'
-        size = 0.5
         play_kw = {"run_time": 0.5}
 
         lines = VGroup(
 
-            Tex("Kernel Matrix", size=size, color=BLUE, t2c={"Command:": BLUE}),
+            Tex("Kernel Matrix", color=BLUE, ),
             Matrix([("0", "-1", "0"),
                     ("-1", "5", "-1"),
-                    ("0", "-1", "0")], size=size),
+                    ("0", "-1", "0")]),
 
-            Matrix([("10", "20", "45"),
-                    ("45", "97  ", "123"),
-                    ("133", "56", "75")], size=size),
+            Matrix([("1", "2", "-1"),
+                    ("-3", "1  ", "1"),
+                    ("3", "2", "0")]),
 
-            Tex("*", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("=", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex(".", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("(", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex(")", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("+", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
+            Tex("*", color=BLUE),
+            Tex("=", color=BLUE),
+            Tex(".", color=BLUE),
+            Tex("(", color=BLUE),
+            Tex(")", color=BLUE),
+            Tex("+", color=BLUE),
 
             Matrix([("0", "-20", "0"),
                     ("-45", "485", "-123"),
-                    ("0", "-56", "0")], size=size),
+                    ("0", "-56", "0")]),
 
-            Tex("241", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD)
+            Tex("241", color=BLUE)
 
         )
 
 
         op = VGroup(
-            Tex("0", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("-20", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("0", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("-45", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("485", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("-123", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("0", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("-56", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD),
-            Tex("0", size=size, t2c={"Command:": BLUE}, font=sans, weight=BOLD)
+            Tex("0"),
+            Tex("-20"),
+            Tex("0"),
+            Tex("-45"),
+            Tex("485"),
+            Tex("-123"),
+            Tex("0"),
+            Tex("-56"),
+            Tex("0")
         )
 
         t1_1 = lines[0]
@@ -116,7 +115,7 @@ class manim_mobject_matrix_001a(Scene):
                       FadeOut(b_c1), FadeOut(eq1), Transform(o1, f2))
 
         self.play(FadeOut(equal), FadeOut(image_matrix), FadeOut(multi), FadeOut(kernel_matrix))
-        summ = Tex(r"\sum", size=size, color=BLUE, t2c={"Command:": BLUE}, font=sans, weight=BOLD)
+        summ = Tex(r"sum", color=BLUE)
         summ.shift(UP)
         summ.shift(LEFT*3)
 
