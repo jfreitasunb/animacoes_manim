@@ -20,14 +20,17 @@ class manim_mobject_matrix_001a(Scene):
 
             Tex(".", color=BLUE),
             Tex("=", color=BLUE),
-            Tex(".", color=BLUE),
+            Tex("+", color=BLUE),
             Tex("(", color=BLUE),
             Tex(")", color=BLUE),
-            Tex("+", color=BLUE),
+            Tex("8", color=BLUE),
 
             Matrix([("-1", "5", "-1"),
                     ("-9", "21", "-4"),
-                    ("1", "-5", "1")])
+                    ("1", "-5", "1")]),
+
+            Tex("241", color=BLUE)
+
         )
 
 
