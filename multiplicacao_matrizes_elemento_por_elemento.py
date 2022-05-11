@@ -114,7 +114,6 @@ class manim_mobject_matrix_001a(Scene):
             self.play(FadeOut(b_o1), FadeOut(i2), FadeOut(m_mul1), FadeOut(j2),
                       FadeOut(b_c1), FadeOut(eq1), Transform(o1, f2))
 
-        self.play(FadeOut(equal), FadeOut(image_matrix), FadeOut(multi), FadeOut(kernel_matrix))
         self.wait(2)
         self.clear()
         self.wait(2)
