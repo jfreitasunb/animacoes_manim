@@ -18,16 +18,16 @@ class manim_mobject_matrix_001a(Scene):
                     ("-3", "1  ", "1"),
                     ("3", "2", "0")]),
 
-            Tex("*", color=BLUE),
+            Tex(".", color=BLUE),
             Tex("=", color=BLUE),
             Tex(".", color=BLUE),
             Tex("(", color=BLUE),
             Tex(")", color=BLUE),
             Tex("+", color=BLUE),
 
-            Matrix([("0", "-20", "0"),
-                    ("-45", "485", "-123"),
-                    ("0", "-56", "0")]),
+            Matrix([("-1", "5", "-1"),
+                    ("-9", "21", "-4"),
+                    ("1", "-5", "1")]),
 
             Tex("241", color=BLUE)
 
@@ -35,15 +35,15 @@ class manim_mobject_matrix_001a(Scene):
 
 
         op = VGroup(
-            Tex("0"),
-            Tex("-20"),
-            Tex("0"),
-            Tex("-45"),
-            Tex("485"),
-            Tex("-123"),
-            Tex("0"),
-            Tex("-56"),
-            Tex("0")
+            Tex("1"),
+            Tex("5"),
+            Tex("-1"),
+            Tex("-9"),
+            Tex("21"),
+            Tex("-4"),
+            Tex("1"),
+            Tex("-5"),
+            Tex("1")
         )
 
         t1_1 = lines[0]
