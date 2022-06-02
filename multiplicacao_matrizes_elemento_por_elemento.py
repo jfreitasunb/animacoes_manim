@@ -1,5 +1,3 @@
-from manim.scene.scene import Scene
-from manim.mobject.matrix import Matrix
 from manim import *
 
 class manim_mobject_matrix_001a(Scene):
