@@ -77,7 +77,7 @@ class Start(Scene):
         rref_matrix.shift(RIGHT*3)
         passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
         passo_1.shift(DOWN*1.8)
-        self.play(Write(passo_1), **{"run_time":1})
+        self.play(Write(passo_1), **{"run_time":3})
         self.wait()
         self.play(FadeOut(passo_1))
         for i in VGroup(*rref_matrix)[1:]:
@@ -99,29 +99,56 @@ class Start(Scene):
 
         self.play(Create(separator2), **{"run_time": 0.25})
         self.wait()
-        self.remove(bottom_text)
+        self.remove(passo_1)
 
-        bottom_text = Tex(r"Agora vamos zerar os coeficiente na primeira coluna que estão abaixo do 1.")
-        bottom_text.shift(DOWN*1.8)
+        passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
+        passo_2.shift(DOWN*1.8)
         coluna1 = SurroundingRectangle(rref_matrix.get_columns()[0], color=BLUE)
         self.play(Create(coluna1), **{"run_time":0.4})
-        self.play(Write(bottom_text), **{"run_time":1})
-        self.remove(bottom_text)
-        for i in range(0,3):
-            row = SurroundingRectangle(rref_matrix.get_rows()[i])
-            if i == 0:
-                bottom_text = Tex("x", " = 4")
-                bottom_text.set_color_by_tex('x', RED)
-            elif i == 1:
-                bottom_text = Tex("y", " = -1")
-                bottom_text.set_color_by_tex('y', GREEN)
-            else:
-                bottom_text = Tex("z", " = 2")
-                bottom_text.set_color_by_tex('z', BLUE)
-            self.play(Create(row), **{"run_time": 1.75})
-            bottom_text.shift(DOWN*1.8)
-            self.play(Write(bottom_text), **{"run_time": 1.2})
-            self.wait()
-            self.remove(bottom_text)
-            self.remove(row)
+        self.play(Write(passo_2), **{"run_time":3})
+        self.wait(3)
+        self.remove(passo_2)
+        self.remove(coluna1)
+
+        passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
+
+        passo_3a.shift(DOWN*1.8)
+        self.play(Write(passo_3a), **{"run_time":3})
+
+        linha1p3 = SurroundingRectangle(rref_matrix.get_rows()[0], color=BLUE)
+        self.play(Create(linha1p3), **{"run_time": 1})
+
+        self.remove(passo_3a)
+
+        self.remove(linha1p3)
+
+        passo_3b = Tex(r"E somamos com a segunda linhas.")
+
+        passo_3b.shift(DOWN*1.8)
+
+        self.play(Write(passo_3b), **{"run_time":3})
+
+        linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
+        self.play(Create(linha2p3), **{"run_time":1})
+
+        self.remove(passo_3b)
+
+
+        #for i in range(0,3):
+        #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
+        #    if i == 0:
+        #        bottom_text = Tex("x", " = 4")
+        #        bottom_text.set_color_by_tex('x', RED)
+        #    elif i == 1:
+        #        bottom_text = Tex("y", " = -1")
+        #        bottom_text.set_color_by_tex('y', GREEN)
+        #    else:
+        #        bottom_text = Tex("z", " = 2")
+        #        bottom_text.set_color_by_tex('z', BLUE)
+        #    self.play(Create(row), **{"run_time": 1.75})
+        #    bottom_text.shift(DOWN*1.8)
+        #    self.play(Write(bottom_text), **{"run_time": 1.2})
+        #    self.wait()
+        #    self.remove(bottom_text)
+        #    self.remove(row)
         finishScene(self)
