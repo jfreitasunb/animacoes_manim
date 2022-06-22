@@ -31,9 +31,17 @@ class Start(Scene):
         self.wait()
 
         self.add(equations)
+        self.play(title.animate.scale(0.8).to_corner(corner=UP*0.1 + LEFT, buff=0.5))
         self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
         self.wait(0.5)
 
+        primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
+
+        self.play(Write(primeiro_passo), run_time = 5)
+
+        self.wait(2.5)
+
+        self.play(FadeOut(primeiro_passo), run_time=3)
         coefficient_matrix = Matrix(
             [("3", "1", "-2", "7"), ("1", "-3", "4", "15"), ("2", "-2", "1", "12")])
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
@@ -63,18 +71,18 @@ class Start(Scene):
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
 
         rref_matrix = Matrix(
-            [("1", "0", "0", "4"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")])
+            [("1", "-3", "4", "15"), ("3", "1", "-2", "7"), ("2", "-2", "1", "12")])
         rref_matrix_flat = VGroup(*VGroup(*rref_matrix)[0])
         rref_matrix.shift(RIGHT*3)
-        for i in VGroup(*rref_matrix)[1:]:
-            self.play(Write(i))
-        bottom_text = Tex("Escalonando o sistema")
+        bottom_text = Tex(r"Como esse coeficiente é diferente de 1 vamos trocar a primeira linha com a segunda linha.")
         bottom_text.shift(DOWN*1.8)
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
-        self.play(Create(arrow), **{"run_time":0.4})
         self.play(Write(bottom_text), **{"run_time":1})
         self.wait()
-
+        for i in VGroup(*rref_matrix)[1:]:
+            self.play(Write(i))
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        self.play(Create(arrow), **{"run_time":0.4})
         for i in range(0,12):
             rref_matrix_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(coefficient_matrix_flat[i], rref_matrix_flat[i]), **{"run_time": 0.75})
