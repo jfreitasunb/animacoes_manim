@@ -22,17 +22,14 @@ def finishScene(self):
 
 class Start(Scene):
     def construct(self):
-        title = Tex(r"Linear Equations")
+        title = Tex(r"Encontre a solução do sistema linear:")
         VGroup(title, equations).arrange(DOWN)
         self.play(
             Write(title),
             FadeIn(equations, shift=UP),
         )
         self.wait()
-        finishScene(self)
 
-class Second(Scene):
-    def construct(self):
         self.add(equations)
         self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
         self.wait(0.5)
