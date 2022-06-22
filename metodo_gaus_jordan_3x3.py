@@ -75,7 +75,7 @@ class Start(Scene):
             [("1", "-3", "4", "15"), ("3", "1", "-2", "7"), ("2", "-2", "1", "12")])
         rref_matrix_flat = VGroup(*VGroup(*rref_matrix)[0])
         rref_matrix.shift(RIGHT*3)
-        bottom_text = Tex(r"Como esse coeficiente é diferente de 1 vamos trocar a primeira linha com a segunda linha.")
+        bottom_text = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
         bottom_text.shift(DOWN*1.8)
         self.play(Write(bottom_text), **{"run_time":1})
         self.wait()
@@ -86,7 +86,15 @@ class Start(Scene):
         self.play(Create(arrow), **{"run_time":0.4})
         for i in range(0,12):
             rref_matrix_flat[i].set_color(augmented_matrix_colors[i%4])
-            self.play(Transform(coefficient_matrix_flat[i], rref_matrix_flat[i]), **{"run_time": 0.75})
+            if i < 4:
+                rref_matrix_flat[i+4].set_color(augmented_matrix_colors[i%4])
+                self.play(Transform(coefficient_matrix_flat[i], rref_matrix_flat[i+4]), **{"run_time": 0.75})
+            if i > 3 and i < 8:
+                rref_matrix_flat[i-4].set_color(augmented_matrix_colors[i%4])
+                self.play(Transform(coefficient_matrix_flat[i], rref_matrix_flat[i-4]), **{"run_time": 0.75})
+            if i > 7 and i < 12:
+                self.play(Transform(coefficient_matrix_flat[i], rref_matrix_flat[i]), **{"run_time": 0.75})
+
 
         self.play(Create(separator2), **{"run_time": 0.25})
         self.wait()
