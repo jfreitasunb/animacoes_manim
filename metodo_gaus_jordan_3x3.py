@@ -99,6 +99,13 @@ class Start(Scene):
         self.play(Create(separator2), **{"run_time": 0.25})
         self.wait()
         self.remove(bottom_text)
+
+        bottom_text = Tex(r"Agora vamos zerar os coeficiente na primeira coluna que estão abaixo do 1.")
+        bottom_text.shift(DOWN*1.8)
+        coluna1 = SurroundingRectangle(rref_matrix.get_columns()[0], color=BLUE)
+        self.play(Create(coluna1), **{"run_time":0.4})
+        self.play(Write(bottom_text), **{"run_time":1})
+        self.remove(bottom_text)
         for i in range(0,3):
             row = SurroundingRectangle(rref_matrix.get_rows()[i])
             if i == 0:
