@@ -69,7 +69,8 @@ class Start(Scene):
             for j in range(0,3):
                 self.play(VGroup(*VGroup(*coefficient_matrix)[0])[i+4*j].animate.set_color(augmented_matrix_colors[i]),**{"run_time": 0.1})
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
-
+        primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0][0], color=RED)
+        self.play(Create(primeira_entrada))
         rref_matrix = Matrix(
             [("1", "-3", "4", "15"), ("3", "1", "-2", "7"), ("2", "-2", "1", "12")])
         rref_matrix_flat = VGroup(*VGroup(*rref_matrix)[0])
