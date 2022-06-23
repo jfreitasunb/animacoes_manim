@@ -118,20 +118,40 @@ class Start(Scene):
         linha1p3 = SurroundingRectangle(rref_matrix.get_rows()[0], color=BLUE)
         self.play(Create(linha1p3), **{"run_time": 1})
 
+        self.wait(3)
         self.remove(passo_3a)
 
-        self.remove(linha1p3)
-
-        passo_3b = Tex(r"E somamos com a segunda linhas.")
+        passo_3b = Tex(r"E somamos com a segunda linha.")
 
         passo_3b.shift(DOWN*1.8)
 
         self.play(Write(passo_3b), **{"run_time":3})
 
         linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
-        self.play(Create(linha2p3), **{"run_time":1})
+        self.play(
+            ReplacementTransform(linha1p3,linha2p3),
+        )
+
+        self.wait(3)
 
         self.remove(passo_3b)
+
+        rref_matrix_p1 = Matrix(
+            [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("2", "-2", "1", "12")])
+        rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
+        rref_matrix_p1.shift(LEFT*3.5 + DOWN*1.8)
+
+        for i in VGroup(*rref_matrix_p1)[1:]:
+            self.play(Write(i))
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow.next_to(rref_matrix, RIGHT)
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        for i in range(0,12):
+            rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_flat[i], rref_matrix_p1_flat[i]), **{"run_time": 0.75})
 
 
         #for i in range(0,3):
