@@ -211,7 +211,7 @@ class Start(Scene):
         self.play(FadeOut(passo_5))
 
         rref_matrix_p3 = Matrix(
-            [("1\ ", "-3\ ", "4\ ", "15"), ("0", "1\ ", "\ -7/5", "\ -19/5"), ("0", "4\ ", "-7\ ", "-18")])
+            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
         rref_matrix_p2_temp = VGroup(*VGroup(*rref_matrix_p2)[0]).copy()
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0])
 
@@ -246,21 +246,30 @@ class Start(Scene):
         passo_7a.shift(DOWN*2.5)
         self.play(Write(passo_7a), **{"run_time":3})
 
-        self.wait(3)
+        linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
+        self.play(Create(linha2p7), **{"run_time": 1})
 
-        self.remove(passo_7a)
+
+        self.wait(3)
 
         passo_7b = Tex(r"E somamos com a primeira linha.")
 
-        self.wait(3)
-
-        self.remove(passo_7b)
-
-        passo_7b.shift(DOWN*2.5)
+        passo_7b.shift(DOWN*3)
 
         self.play(Write(passo_7b), **{"run_time":3})
 
+        linha1p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[0], color=BLUE)
+        self.play(
+            ReplacementTransform(linha2p7,linha1p7),
+        )
+
         self.wait(3)
+
+        self.remove(passo_3b)
+
+        self.wait(3)
+
+        self.remove(passo_7a)
 
         self.remove(passo_7b)
 
