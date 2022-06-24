@@ -142,19 +142,66 @@ class Start(Scene):
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("2", "-2", "1", "12")])
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
-        rref_matrix_p1.shift(LEFT*3.5 + DOWN*1.8)
+        rref_matrix_p1.to_corner(corner=UP + LEFT, buff=0.5)
 
         for i in VGroup(*rref_matrix_p1)[1:]:
             self.play(Write(i))
 
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
-        arrow.next_to(rref_matrix, RIGHT)
-        self.play(Create(arrow), **{"run_time":0.4})
+        #arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        #arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        #arrow.next_to(rref_matrix, RIGHT)
+        #self.play(Create(arrow), **{"run_time":0.4})
 
         for i in range(0,12):
             rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
-            self.play(Transform(rref_matrix_flat[i], rref_matrix_p1_flat[i]), **{"run_time": 0.75})
+            self.play(Write(rref_matrix_p1_flat[i]), **{"run_time": 0.75})
+
+        passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
+
+        passo_4a.shift(DOWN)
+        self.play(Write(passo_4a), **{"run_time":3})
+
+        linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
+        self.play(Create(linha1p4), **{"run_time": 1})
+
+        self.wait(3)
+        self.remove(passo_4a)
+
+        passo_4b = Tex(r"E somamos com a terceira linha.")
+
+        passo_4b.shift(DOWN)
+
+        self.play(Write(passo_4b), **{"run_time":3})
+
+        linha3p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[2], color=BLUE)
+        self.play(
+            ReplacementTransform(linha1p4,linha3p4),
+        )
+
+        self.wait(3)
+
+        self.remove(passo_4b)
+
+        rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
+        rref_matrix_p2 = Matrix(
+            [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("0", "4", "-7", "-28")])
+        rref_matrix_p2_flat = VGroup(*VGroup(*rref_matrix_p2)[0])
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow.next_to(rref_matrix_p1, RIGHT)
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p2.next_to(arrow, RIGHT)
+        for i in VGroup(*rref_matrix_p2)[1:]:
+            self.play(Write(i))
+
+
+        for i in range(0,12):
+            rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p1_flat[i], rref_matrix_p2_flat[i]), **{"run_time": 0.75})
+
+        #arrow.next_to(rref_matrix, RIGHT)
+        #self.play(Create(arrow), **{"run_time":0.4})
 
 
         #for i in range(0,3):
