@@ -136,6 +136,9 @@ class Start(Scene):
 
         self.remove(passo_3b)
 
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("2", "-2", "1", "12")])
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
