@@ -69,7 +69,7 @@ class Start(Scene):
             for j in range(0,3):
                 self.play(VGroup(*VGroup(*coefficient_matrix)[0])[i+4*j].animate.set_color(augmented_matrix_colors[i]),**{"run_time": 0.1})
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
-        primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0][0], color=RED)
+        primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0], color=RED)
         self.play(Create(primeira_entrada))
         rref_matrix = Matrix(
             [("1", "-3", "4", "15"), ("3", "1", "-2", "7"), ("2", "-2", "1", "12")])
@@ -199,6 +199,15 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p1_flat[i], rref_matrix_p2_flat[i]), **{"run_time": 0.75})
+
+        primeira_entrada_segunda_linha = SurroundingRectangle(rref_matrix_p2.get_entries()[5], color=RED)
+        self.play(Create(primeira_entrada_segunda_linha))
+
+        passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar multiplicar a segunda linha por 1/10.")
+        passo_5.shift(DOWN*1.8)
+        self.play(Write(passo_5), **{"run_time":3})
+        self.wait()
+        self.play(FadeOut(passo_5))
 
         #arrow.next_to(rref_matrix, RIGHT)
         #self.play(Create(arrow), **{"run_time":0.4})
