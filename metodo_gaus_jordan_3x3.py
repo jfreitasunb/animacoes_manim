@@ -180,6 +180,7 @@ class Start(Scene):
 
         self.wait(3)
 
+        self.remove(linha3p4)
         self.remove(passo_4b)
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
@@ -210,23 +211,60 @@ class Start(Scene):
         self.play(FadeOut(passo_5))
 
         rref_matrix_p3 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")])
-        rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
+            [("1\ ", "-3\ ", "4\ ", "15"), ("0", "1\ ", "\ -7/5", "\ -19/5"), ("0", "4\ ", "-7\ ", "-18")])
+        rref_matrix_p2_temp = VGroup(*VGroup(*rref_matrix_p2)[0]).copy()
+        rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0])
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow.next_to(rref_matrix_p2, RIGHT)
         self.play(Create(arrow), **{"run_time":0.4})
 
-        rref_matrix_p3.next_to(arrow, LEFT + DOWN)
-        for i in VGroup(*rref_matrix_p2)[1:]:
+        rref_matrix_p3.next_to(rref_matrix_p1, DOWN)
+        for i in VGroup(*rref_matrix_p3)[1:]:
             self.play(Write(i))
 
 
         for i in range(0,12):
-            rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
-            self.play(Transform(rref_matrix_p1_flat[i], rref_matrix_p3_flat[i]), **{"run_time": 0.75})
+            rref_matrix_p3_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p2_temp[i], rref_matrix_p3_flat[i]), **{"run_time": 0.75})
 
+        passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
+        passo_6.shift(DOWN*2.5)
 
+        self.play(Write(passo_6), **{"run_time":3})
+
+        coluna2 = SurroundingRectangle(rref_matrix_p3.get_columns()[1], color=BLUE)
+
+        self.play(Create(coluna2), **{"run_time":0.4})
+
+        self.wait(3)
+
+        self.remove(passo_6)
+
+        passo_7a = Tex(r"Começamos multiplicando a segunda linha por -3.")
+
+        passo_7a.shift(DOWN*2.5)
+        self.play(Write(passo_7a), **{"run_time":3})
+
+        self.wait(3)
+
+        self.remove(passo_7a)
+
+        passo_7b = Tex(r"E somamos com a primeira linha.")
+
+        self.wait(3)
+
+        self.remove(passo_7b)
+
+        passo_7b.shift(DOWN*2.5)
+
+        self.play(Write(passo_7b), **{"run_time":3})
+
+        self.wait(3)
+
+        self.remove(passo_7b)
+
+        self.remove(coluna2)
         #arrow.next_to(rref_matrix, RIGHT)
         #self.play(Create(arrow), **{"run_time":0.4})
 
