@@ -140,7 +140,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
         rref_matrix_p1 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("2", "-2", "1", "12")])
+            [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("2", "-2", "1", "12")])
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
         rref_matrix_p1.to_corner(corner=UP + LEFT, buff=0.5)
 
@@ -184,7 +184,7 @@ class Start(Scene):
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
         rref_matrix_p2 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "10", "-14", "38"), ("0", "4", "-7", "-28")])
+            [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("0", "4", "-7", "-18")])
         rref_matrix_p2_flat = VGroup(*VGroup(*rref_matrix_p2)[0])
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
