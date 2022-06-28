@@ -296,6 +296,33 @@ class Start(Scene):
             rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p3_flat[i], rref_matrix_p4_flat[i]), **{"run_time": 0.75})
 
+        passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
+
+        passo_8a.shift(DOWN*2.3)
+
+        self.play(Write(passo_8a), **{"run_time":3})
+
+        linha2p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[1], color=BLUE)
+
+        self.play(Create(linha2p8), **{"run_time": 1})
+
+        self.wait(3)
+
+        passo_8b = Tex(r"E somamos com a terceira linha.")
+
+        passo_8b.shift(DOWN*2.8)
+
+        self.play(Write(passo_8b), **{"run_time":3})
+
+        linha3p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[2], color=BLUE)
+
+        self.play(
+            ReplacementTransform(linha2p8,linha3p8),
+        )
+
+        self.wait(3)
+
+        self.remove(passo_8b)
 
         #for i in range(0,3):
         #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
