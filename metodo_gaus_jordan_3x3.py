@@ -139,6 +139,7 @@ class Start(Scene):
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
         )
+
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("2", "-2", "1", "12")])
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
@@ -323,6 +324,25 @@ class Start(Scene):
         self.wait(3)
 
         self.remove(passo_8b)
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+
+        rref_matrix_p5 = Matrix(
+            [("1", "0", "-6/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")])
+
+        rref_matrix_p5_flat = VGroup(*VGroup(*rref_matrix_p5)[0])
+
+        rref_matrix_p5.to_corner(corner=UP + LEFT, buff=0.5)
+
+        for i in VGroup(*rref_matrix_p5)[1:]:
+            self.play(Write(i))
+
+        for i in range(0,12):
+            rref_matrix_p5_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Write(rref_matrix_p5_flat[i]), **{"run_time": 0.75})
+
 
         #for i in range(0,3):
         #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
