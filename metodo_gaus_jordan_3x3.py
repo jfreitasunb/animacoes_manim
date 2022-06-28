@@ -277,8 +277,24 @@ class Start(Scene):
         self.remove(passo_7b)
 
         self.remove(coluna2)
-        #arrow.next_to(rref_matrix, RIGHT)
-        #self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
+        rref_matrix_p4 = Matrix(
+            [("1", "0", "-6/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")])
+        rref_matrix_p4_flat = VGroup(*VGroup(*rref_matrix_p4)[0])
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow.next_to(rref_matrix_p3, RIGHT)
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p4.next_to(arrow, RIGHT)
+        for i in VGroup(*rref_matrix_p4)[1:]:
+            self.play(Write(i))
+
+
+        for i in range(0,12):
+            rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p3_flat[i], rref_matrix_p4_flat[i]), **{"run_time": 0.75})
 
 
         #for i in range(0,3):
