@@ -343,6 +343,44 @@ class Start(Scene):
             rref_matrix_p5_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Write(rref_matrix_p5_flat[i]), **{"run_time": 0.75})
 
+        primeira_entrada_terceira_linha = SurroundingRectangle(rref_matrix_p5.get_entries()[10], color=RED)
+
+        self.play(Create(primeira_entrada_terceira_linha))
+
+        passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+
+        passo_10.shift(DOWN*1.8)
+
+        self.play(Write(passo_10), **{"run_time":3})
+
+        self.wait()
+
+        self.play(FadeOut(passo_10))
+
+        self.remove(primeira_entrada_terceira_linha)
+
+        rref_matrix_p6 = Matrix(
+            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.5)
+
+        rref_matrix_p5_temp = VGroup(*VGroup(*rref_matrix_p5)[0]).copy()
+        rref_matrix_p6_flat = VGroup(*VGroup(*rref_matrix_p6)[0])
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p5, RIGHT)
+
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p6.next_to(arrow, RIGHT)
+
+        for i in VGroup(*rref_matrix_p6)[1:]:
+            self.play(Write(i))
+
+        for i in range(0,12):
+            rref_matrix_p6_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p5_temp[i], rref_matrix_p6_flat[i]), **{"run_time": 0.75})
+
+
 
         #for i in range(0,3):
         #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
