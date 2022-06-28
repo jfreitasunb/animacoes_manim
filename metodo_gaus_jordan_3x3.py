@@ -380,6 +380,21 @@ class Start(Scene):
             rref_matrix_p6_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p5_temp[i], rref_matrix_p6_flat[i]), **{"run_time": 0.75})
 
+        passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+
+        passo_11.shift(DOWN*2.5)
+
+        self.play(Write(passo_11), **{"run_time":3})
+
+        coluna3 = SurroundingRectangle(rref_matrix_p6.get_columns()[2], color=BLUE)
+
+        self.play(Create(coluna3), **{"run_time":0.4})
+
+        self.wait(3)
+
+        self.remove(passo_11)
+
+        self.remove(coluna3)
 
 
         #for i in range(0,3):
