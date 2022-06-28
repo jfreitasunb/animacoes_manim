@@ -241,14 +241,17 @@ class Start(Scene):
 
         self.remove(passo_6)
 
+        self.remove(coluna2)
+
         passo_7a = Tex(r"Começamos multiplicando a segunda linha por -3.")
 
         passo_7a.shift(DOWN*2.5)
+
         self.play(Write(passo_7a), **{"run_time":3})
 
         linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
-        self.play(Create(linha2p7), **{"run_time": 1})
 
+        self.play(Create(linha2p7), **{"run_time": 1})
 
         self.wait(3)
 
