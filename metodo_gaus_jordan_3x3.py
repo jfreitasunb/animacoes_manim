@@ -396,6 +396,40 @@ class Start(Scene):
 
         self.remove(coluna3)
 
+        passo_12a = Tex(r"Agora vamos multiplicar a terceira linha por 7/5.")
+
+        passo_12a.shift(DOWN*2.3)
+
+        self.play(Write(passo_12a), **{"run_time":3})
+
+        linha3p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
+
+        self.play(Create(linha3p12), **{"run_time": 1})
+
+        self.wait(3)
+
+        passo_12b = Tex(r"E somamos com a segunda linha.")
+
+        passo_12b.shift(DOWN*2.8)
+
+        self.play(Write(passo_12b), **{"run_time":3})
+
+        linha2p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[1], color=BLUE)
+
+        self.play(
+            ReplacementTransform(linha3p12,linha2p12),
+        )
+
+        self.wait(3)
+
+        self.remove(passo_12b)
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p6, RIGHT)
+
+        self.play(Create(arrow), **{"run_time":0.4})
+
 
         #for i in range(0,3):
         #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
