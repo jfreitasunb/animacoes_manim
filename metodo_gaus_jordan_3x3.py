@@ -454,14 +454,51 @@ class Start(Scene):
 
         self.play(Create(arrow), **{"run_time":0.4})
 
+        passo_13a = Tex(r"Agora multiplicamos a terceira linha por 6/5.")
+
+        passo_13a.shift(DOWN*2.5)
+
+        self.play(Write(passo_13a), **{"run_time":3})
+
+        linha3p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[2], color=BLUE)
+
+        self.play(Create(linha3p13), **{"run_time": 1})
+
+        self.wait(3)
+
+        passo_13b = Tex(r"E somamos com a primeira linha.")
+
+        passo_13b.shift(DOWN*3.0)
+
+        self.play(Write(passo_13b), **{"run_time":3})
+
+        linha1p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[0], color=BLUE)
+
+        self.play(
+            ReplacementTransform(linha3p13,linha1p13),
+        )
+
+        self.wait(3)
+
+        self.remove(passo_13a)
+
+        self.remove(passo_13b)
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p7, RIGHT)
+
+        self.play(Create(arrow), **{"run_time":0.4})
+
         rref_matrix_p8 = Matrix(
-            [("1", "0", "-6/5", "18/5"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+            [("1", "0", "0", "18/5"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
 
         rref_matrix_p7_temp = VGroup(*VGroup(*rref_matrix_p7)[0]).copy()
 
         rref_matrix_p8_flat = VGroup(*VGroup(*rref_matrix_p8)[0])
 
-        rref_matrix_p8.next_to(rref_matrix_p7, RIGHT)
+        rref_matrix_p8.next_to(arrow, RIGHT)
+
 
         for i in VGroup(*rref_matrix_p8)[1:]:
             self.play(Write(i))
