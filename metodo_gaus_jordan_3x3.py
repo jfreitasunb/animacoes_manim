@@ -396,7 +396,7 @@ class Start(Scene):
 
         self.remove(coluna3)
 
-        passo_12a = Tex(r"Agora vamos multiplicar a terceira linha por 7/5.")
+        passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
         passo_12a.shift(DOWN*2.3)
 
@@ -407,6 +407,8 @@ class Start(Scene):
         self.play(Create(linha3p12), **{"run_time": 1})
 
         self.wait(3)
+
+        self.remove(passo_12a)
 
         passo_12b = Tex(r"E somamos com a segunda linha.")
 
@@ -429,6 +431,44 @@ class Start(Scene):
         arrow.next_to(rref_matrix_p6, RIGHT)
 
         self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p7 = Matrix(
+            [("1", "-3", "4", "15"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+
+        rref_matrix_p6_temp = VGroup(*VGroup(*rref_matrix_p6)[0]).copy()
+
+        rref_matrix_p7_flat = VGroup(*VGroup(*rref_matrix_p7)[0])
+
+        rref_matrix_p7.next_to(rref_matrix_p5, DOWN)
+
+        for i in VGroup(*rref_matrix_p7)[1:]:
+            self.play(Write(i))
+
+        for i in range(0,12):
+            rref_matrix_p7_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p6_temp[i], rref_matrix_p7_flat[i]), **{"run_time": 0.75})
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p6, RIGHT)
+
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        rref_matrix_p8 = Matrix(
+            [("1", "-3", "4", "15"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+
+        rref_matrix_p7_temp = VGroup(*VGroup(*rref_matrix_p7)[0]).copy()
+
+        rref_matrix_p8_flat = VGroup(*VGroup(*rref_matrix_p8)[0])
+
+        rref_matrix_p8.next_to(rref_matrix_p7, RIGHT)
+
+        for i in VGroup(*rref_matrix_p8)[1:]:
+            self.play(Write(i))
+
+        for i in range(0,12):
+            rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Transform(rref_matrix_p7_temp[i], rref_matrix_p8_flat[i]), **{"run_time": 0.75})
 
 
         #for i in range(0,3):
