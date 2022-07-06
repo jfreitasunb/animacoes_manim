@@ -244,7 +244,7 @@ class Start(Scene):
 
         self.remove(coluna2)
 
-        passo_7a = Tex(r"Começamos multiplicando a segunda linha por -3.")
+        passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
 
         passo_7a.shift(DOWN*2.5)
 
@@ -360,7 +360,7 @@ class Start(Scene):
         self.remove(primeira_entrada_terceira_linha)
 
         rref_matrix_p6 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.5)
+            [("1", "0", "-6/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.5)
 
         rref_matrix_p5_temp = VGroup(*VGroup(*rref_matrix_p5)[0]).copy()
         rref_matrix_p6_flat = VGroup(*VGroup(*rref_matrix_p6)[0])
@@ -433,7 +433,7 @@ class Start(Scene):
         self.play(Create(arrow), **{"run_time":0.4})
 
         rref_matrix_p7 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+            [("1", "0", "-6/5", "18/5"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
 
         rref_matrix_p6_temp = VGroup(*VGroup(*rref_matrix_p6)[0]).copy()
 
@@ -455,7 +455,7 @@ class Start(Scene):
         self.play(Create(arrow), **{"run_time":0.4})
 
         rref_matrix_p8 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+            [("1", "0", "-6/5", "18/5"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
 
         rref_matrix_p7_temp = VGroup(*VGroup(*rref_matrix_p7)[0]).copy()
 
