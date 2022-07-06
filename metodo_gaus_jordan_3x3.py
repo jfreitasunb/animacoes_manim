@@ -507,11 +507,36 @@ class Start(Scene):
             rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p7_temp[i], rref_matrix_p8_flat[i]), **{"run_time": 0.75})
 
-        passo_14 = Tex(r"Com isso obtemos a solução dos sistema que será:")
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
 
-        passo_14.shift(DOWN*3.0)
+        passo_14a = Tex(r"A matriz resultante desse último passo:")
 
-        self.play(Write(passo_14), **{"run_time":3})
+        passo_14a.shift(UP*3)
+
+        self.play(Write(passo_14a), **{"run_time":3})
+
+        rref_matrix_p8 = Matrix(
+            [("1", "0", "0", "4"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
+
+        rref_matrix_p8_flat = VGroup(*VGroup(*rref_matrix_p8)[0])
+
+        rref_matrix_p8.shift(UP)
+
+
+        for i in VGroup(*rref_matrix_p8)[1:]:
+            self.play(Write(i))
+
+        for i in range(0,12):
+            rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
+            self.play(Write(rref_matrix_p8_flat[i]), **{"run_time": 0.75})
+
+        passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+
+        passo_14b.shift(DOWN*1.5)
+
+        self.play(Write(passo_14b), **{"run_time":3})
 
         for i in range(0,3):
             row = SurroundingRectangle(rref_matrix_p8.get_rows()[i])
@@ -525,7 +550,7 @@ class Start(Scene):
                 bottom_text = Tex("z", " = 2")
                 bottom_text.set_color_by_tex('z', BLUE)
             self.play(Create(row), **{"run_time": 1.75})
-            bottom_text.shift(DOWN*3.2)
+            bottom_text.shift(DOWN*2.5)
             self.play(Write(bottom_text), **{"run_time": 1.2})
             self.wait()
             self.remove(bottom_text)
