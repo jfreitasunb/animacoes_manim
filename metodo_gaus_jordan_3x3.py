@@ -507,22 +507,27 @@ class Start(Scene):
             rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p7_temp[i], rref_matrix_p8_flat[i]), **{"run_time": 0.75})
 
+        passo_14 = Tex(r"Com isso obtemos a solução dos sistema que será:")
 
-        #for i in range(0,3):
-        #    row = SurroundingRectangle(rref_matrix.get_rows()[i])
-        #    if i == 0:
-        #        bottom_text = Tex("x", " = 4")
-        #        bottom_text.set_color_by_tex('x', RED)
-        #    elif i == 1:
-        #        bottom_text = Tex("y", " = -1")
-        #        bottom_text.set_color_by_tex('y', GREEN)
-        #    else:
-        #        bottom_text = Tex("z", " = 2")
-        #        bottom_text.set_color_by_tex('z', BLUE)
-        #    self.play(Create(row), **{"run_time": 1.75})
-        #    bottom_text.shift(DOWN*1.8)
-        #    self.play(Write(bottom_text), **{"run_time": 1.2})
-        #    self.wait()
-        #    self.remove(bottom_text)
-        #    self.remove(row)
+        passo_14.shift(DOWN*3.0)
+
+        self.play(Write(passo_14), **{"run_time":3})
+
+        for i in range(0,3):
+            row = SurroundingRectangle(rref_matrix_p8.get_rows()[i])
+            if i == 0:
+                bottom_text = Tex("x", " = 4")
+                bottom_text.set_color_by_tex('x', RED)
+            elif i == 1:
+                bottom_text = Tex("y", " = -1")
+                bottom_text.set_color_by_tex('y', GREEN)
+            else:
+                bottom_text = Tex("z", " = 2")
+                bottom_text.set_color_by_tex('z', BLUE)
+            self.play(Create(row), **{"run_time": 1.75})
+            bottom_text.shift(DOWN*3.2)
+            self.play(Write(bottom_text), **{"run_time": 1.2})
+            self.wait()
+            self.remove(bottom_text)
+            self.remove(row)
         finishScene(self)
