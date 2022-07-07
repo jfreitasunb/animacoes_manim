@@ -177,10 +177,10 @@ class Start(Scene):
 
         passo_3b.shift(DOWN*2.5)
 
-        self.play(Write(passo_3b), **{"run_time":3})
+        #self.play(Write(passo_3b), **{"run_time":3})
 
         linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
-        self.play(ReplacementTransform(linha1p3,linha2p3))
+        self.play(ReplacementTransform(linha1p3,linha2p3), Write(passo_3b),**{"run_time":3})
 
         self.wait(3)
 
@@ -188,8 +188,10 @@ class Start(Scene):
 
         self.remove(passo_3b)
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
-        arrow = Arrow.next_to(rref_matrix, RIGHT)
+        arrow.next_to(rref_matrix, RIGHT)
         self.play(Create(arrow), **{"run_time":0.4})
+
+        self.wait(2)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
@@ -224,7 +226,7 @@ class Start(Scene):
 
         passo_4b = Tex(r"E somamos com a terceira linha.")
 
-        passo_4b.shift(DOWN*2)
+        passo_4b.shift(DOWN*2.5)
 
         self.play(Write(passo_4b), **{"run_time":3})
 
