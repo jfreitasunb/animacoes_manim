@@ -111,7 +111,7 @@ class Start(Scene):
 
         self.play(Write(passo_1), **{"run_time": 3})
 
-        self.wait()
+        self.wait(5)
 
         self.play(FadeOut(primeira_entrada))
 
@@ -145,8 +145,6 @@ class Start(Scene):
 
         self.wait()
 
-        self.play(FadeOut(passo_1), **{"run_time": 0.25})
-
         passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
 
         passo_2.shift(DOWN*1.8)
@@ -179,11 +177,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.remove(passo_3a)
-
-        self.remove(passo_3b)
-
-        self.remove(linha1p3, linha2p3)
+        self.play(FadeOut(passo_3a), FadeOut(passo_3b), FadeOut(linha2p3), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow.next_to(rref_matrix, RIGHT)
@@ -231,9 +225,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.remove(linha3p4)
-        self.remove(passo_4a)
-        self.remove(passo_4b)
+        self.play(FadeOut(linha3p4), FadeOut(passo_4a), FadeOut(passo_4b), **{"run_time": 0.25})
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
         rref_matrix_p2 = Matrix(
@@ -260,9 +252,7 @@ class Start(Scene):
         passo_5.shift(DOWN*1.8)
         self.play(Write(passo_5), **{"run_time":3})
         self.wait()
-        self.play(FadeOut(passo_5))
-
-        self.play(FadeOut(primeira_entrada_segunda_linha))
+        self.play(FadeOut(passo_5), FadeOut(primeira_entrada_segunda_linha), **{"run_time": 0.25})
 
         rref_matrix_p3 = Matrix(
             [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
@@ -285,17 +275,13 @@ class Start(Scene):
         passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
         passo_6.shift(DOWN*2.5)
 
-        self.play(Write(passo_6), **{"run_time":3})
-
         coluna2 = SurroundingRectangle(rref_matrix_p3.get_columns()[1], color=BLUE)
 
-        self.play(Create(coluna2), **{"run_time":0.4})
+        self.play(Create(coluna2), Write(passo_6), **{"run_time": 3})
 
         self.wait(3)
 
-        self.remove(passo_6)
-
-        self.remove(coluna2)
+        self.play(FadeOut(passo_6), FadeOut(coluna2), **{"run_time": 0.25})
 
         passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
 
@@ -320,17 +306,11 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.play(FadeOut(linha1p7))
-
-        self.remove(passo_3b)
+        self.play(FadeOut(linha1p7), FadeOut(passo_7b), **{"run_time": 0.25})
 
         self.wait(3)
 
-        self.remove(passo_7a)
-
-        self.remove(passo_7b)
-
-        self.remove(coluna2)
+        self.play(FadeOut(coluna2), FadeOut(passo_7a), FadeOut(passo_7b), **{"run_time": 0.25})
 
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
         rref_matrix_p4 = Matrix(
@@ -372,9 +352,8 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.play(FadeOut(linha3p8))
+        self.play(FadeOut(linha3p8), FadeOut(passo_8a), FadeOut(passo_8a), **{"run_time": 0.25})
 
-        self.remove(passo_8b)
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow.next_to(rref_matrix_p4, RIGHT)
         self.play(Create(arrow), **{"run_time":0.4})
@@ -411,9 +390,7 @@ class Start(Scene):
 
         self.wait()
 
-        self.play(FadeOut(passo_10))
-
-        self.remove(primeira_entrada_terceira_linha)
+        self.play(FadeOut(passo_10), FadeOut(primeira_entrada_terceira_linha), **{"run_time": 0.25})
 
         rref_matrix_p6 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.5)
@@ -448,9 +425,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.remove(passo_11)
-
-        self.remove(coluna3)
+        self.play(FadeOut(passo_11), **{"run_time": 0.25})
 
         passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
@@ -472,11 +447,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.play(FadeOut(linha2p12))
-
-        self.play(FadeOut(passo_12a))
-
-        self.remove(passo_12b)
+        self.play(FadeOut(linha2p12), FadeOut(passo_12a), FadeOut(passo_12b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
@@ -528,11 +499,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.remove(linha1p13)
-
-        self.remove(passo_13a)
-
-        self.remove(passo_13b)
+        self.play(FadeOut(linha1p13), FadeOut(passo_13b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
