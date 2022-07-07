@@ -125,11 +125,11 @@ class Start(Scene):
 
         passo_3b.shift(DOWN*2.3)
 
-        self.play(Write(passo_3b), **{"run_time":3})
+#        self.play(Write(passo_3b), **{"run_time":3})
 
         linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
         self.play(
-            ReplacementTransform(linha1p3,linha2p3),
+            ReplacementTransform(linha1p3,linha2p3),Write(passo_3b), **{"run_time":3}
         )
 
         self.wait(3)
