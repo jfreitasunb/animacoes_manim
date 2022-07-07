@@ -80,7 +80,8 @@ class Start(Scene):
                 self.play(Transform(toFade[-1], coefficient_matrix_flat[resultant]), **{"run_time":0.75})
 
         for fade in toFade:
-            self.play(FadeOut(fade), **{"run_time":0.01})
+            self.play(FadeOut(fade), **{"run_time": 0.01}
+        )
 
         self.play(ApplyMethod(coefficient_matrix.shift, LEFT*3.5))
 
@@ -108,7 +109,7 @@ class Start(Scene):
 
         passo_1.shift(DOWN*1.8)
 
-        self.play(Write(passo_1), **{"run_time":3})
+        self.play(Write(passo_1), **{"run_time": 3})
 
         self.wait()
 
@@ -120,7 +121,7 @@ class Start(Scene):
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
-        self.play(Create(arrow), **{"run_time":0.4})
+        self.play(Create(arrow), **{"run_time": 0.4})
 
         for i in VGroup(*rref_matrix)[1:]:
             self.play(Write(i))
@@ -144,7 +145,7 @@ class Start(Scene):
 
         self.wait()
 
-        self.remove(passo_1)
+        self.play(FadeOut(passo_1), **{"run_time": 0.25})
 
         passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
 
@@ -152,32 +153,26 @@ class Start(Scene):
 
         coluna1 = SurroundingRectangle(rref_matrix.get_columns()[0], color=BLUE)
 
-        self.play(Create(coluna1), **{"run_time":0.4})
+        self.play(Create(coluna1), **{"run_time": 0.4})
 
-        self.play(Write(passo_2), **{"run_time":3})
+        self.play(Write(passo_2), **{"run_time": 3})
 
         self.wait(3)
 
-        self.remove(passo_2)
-
-        self.remove(coluna1)
+        self.play(FadeOut(passo_2), FadeOut(coluna1), **{"run_time": 0.25})
 
         passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
 
         passo_3a.shift(DOWN*1.8)
 
-        self.play(Write(passo_3a), **{"run_time":3})
-
         linha1p3 = SurroundingRectangle(rref_matrix.get_rows()[0], color=BLUE)
-        self.play(Create(linha1p3), **{"run_time": 1})
+        self.play(Write(passo_3a), Create(linha1p3), **{"run_time": 3})
 
         self.wait(3)
 
         passo_3b = Tex(r"E somamos com a segunda linha.")
 
         passo_3b.shift(DOWN*2.5)
-
-        #self.play(Write(passo_3b), **{"run_time":3})
 
         linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
         self.play(ReplacementTransform(linha1p3,linha2p3), Write(passo_3b),**{"run_time":3})
@@ -187,6 +182,9 @@ class Start(Scene):
         self.remove(passo_3a)
 
         self.remove(passo_3b)
+
+        self.remove(linha1p3, linha2p3)
+
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow.next_to(rref_matrix, RIGHT)
         self.play(Create(arrow), **{"run_time":0.4})
@@ -217,10 +215,10 @@ class Start(Scene):
         passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
 
         passo_4a.shift(DOWN*1.8)
-        self.play(Write(passo_4a), **{"run_time":3})
+        #self.play(Write(passo_4a), **{"run_time":3})
 
         linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
-        self.play(Create(linha1p4), **{"run_time": 1})
+        self.play(Write(passo_4a), Create(linha1p4), **{"run_time": 3})
 
         self.wait(3)
 
@@ -228,12 +226,8 @@ class Start(Scene):
 
         passo_4b.shift(DOWN*2.5)
 
-        self.play(Write(passo_4b), **{"run_time":3})
-
         linha3p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[2], color=BLUE)
-        self.play(
-            ReplacementTransform(linha1p4,linha3p4),
-        )
+        self.play(ReplacementTransform(linha1p4,linha3p4), Write(passo_4b), **{"run_time": 3})
 
         self.wait(3)
 
@@ -307,11 +301,9 @@ class Start(Scene):
 
         passo_7a.shift(DOWN*2.5)
 
-        self.play(Write(passo_7a), **{"run_time":3})
-
         linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
 
-        self.play(Create(linha2p7), **{"run_time": 1})
+        self.play(Write(passo_7a), Create(linha2p7), **{"run_time": 3})
 
         self.wait(3)
 
@@ -362,11 +354,9 @@ class Start(Scene):
 
         passo_8a.shift(DOWN*2.3)
 
-        self.play(Write(passo_8a), **{"run_time":3})
-
         linha2p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[1], color=BLUE)
 
-        self.play(Create(linha2p8), **{"run_time": 1})
+        self.play(Write(passo_8a), Create(linha2p8), **{"run_time": 3})
 
         self.wait(3)
 
@@ -378,9 +368,7 @@ class Start(Scene):
 
         linha3p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[2], color=BLUE)
 
-        self.play(
-            ReplacementTransform(linha2p8,linha3p8),
-        )
+        self.play(ReplacementTransform(linha2p8,linha3p8), Write(passo_8b), **{"run_time": 3})
 
         self.wait(3)
 
@@ -468,11 +456,9 @@ class Start(Scene):
 
         passo_12a.shift(DOWN*2.3)
 
-        self.play(Write(passo_12a), **{"run_time":3})
-
         linha3p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
 
-        self.play(Create(linha3p12), **{"run_time": 1})
+        self.play(Write(passo_12a), Create(linha3p12), **{"run_time": 3})
 
         self.wait(3)
 
@@ -480,13 +466,9 @@ class Start(Scene):
 
         passo_12b.shift(DOWN*3.0)
 
-        self.play(Write(passo_12b), **{"run_time":3})
-
         linha2p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[1], color=BLUE)
 
-        self.play(
-            ReplacementTransform(linha3p12,linha2p12),
-        )
+        self.play(ReplacementTransform(linha3p12,linha2p12),Write(passo_12a), **{"run_time": 3})
 
         self.wait(3)
 
@@ -528,11 +510,9 @@ class Start(Scene):
 
         passo_13a.shift(DOWN*2.5)
 
-        self.play(Write(passo_13a), **{"run_time":3})
-
         linha3p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[2], color=BLUE)
 
-        self.play(Create(linha3p13), **{"run_time": 1})
+        self.play(Write(passo_13a), Create(linha3p13), **{"run_time": 3})
 
         self.wait(3)
 
@@ -544,9 +524,7 @@ class Start(Scene):
 
         linha1p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[0], color=BLUE)
 
-        self.play(
-            ReplacementTransform(linha3p13,linha1p13),
-        )
+        self.play(ReplacementTransform(linha3p13,linha1p13),Write(passo_13b), **{"run_time": 3})
 
         self.wait(3)
 
