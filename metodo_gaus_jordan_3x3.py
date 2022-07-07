@@ -81,11 +81,11 @@ class Start(Scene):
         self.wait()
         self.play(FadeOut(primeira_entrada))
         self.play(FadeOut(passo_1))
-        for i in VGroup(*rref_matrix)[1:]:
-            self.play(Write(i))
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         self.play(Create(arrow), **{"run_time":0.4})
+        for i in VGroup(*rref_matrix)[1:]:
+            self.play(Write(i))
         for i in range(0,12):
             rref_matrix_flat[i].set_color(augmented_matrix_colors[i%4])
             if i < 4:
@@ -123,7 +123,7 @@ class Start(Scene):
 
         passo_3b = Tex(r"E somamos com a segunda linha.")
 
-        passo_3b.shift(DOWN*2.0)
+        passo_3b.shift(DOWN*2.3)
 
         self.play(Write(passo_3b), **{"run_time":3})
 
@@ -137,6 +137,9 @@ class Start(Scene):
         self.remove(passo_3a)
 
         self.remove(passo_3b)
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow = Arrow.next_to(rref_matrix, RIGHT)
+        self.play(Create(arrow), **{"run_time":0.4})
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
@@ -161,7 +164,7 @@ class Start(Scene):
 
         passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
 
-        passo_4a.shift(DOWN)
+        passo_4a.shift(DOWN*1.8)
         self.play(Write(passo_4a), **{"run_time":3})
 
         linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
@@ -171,7 +174,7 @@ class Start(Scene):
 
         passo_4b = Tex(r"E somamos com a terceira linha.")
 
-        passo_4b.shift(DOWN)
+        passo_4b.shift(DOWN*2)
 
         self.play(Write(passo_4b), **{"run_time":3})
 
@@ -287,7 +290,7 @@ class Start(Scene):
 
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
         rref_matrix_p4 = Matrix(
-            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
+            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.7)
         rref_matrix_p4_flat = VGroup(*VGroup(*rref_matrix_p4)[0])
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
@@ -332,13 +335,18 @@ class Start(Scene):
         self.play(FadeOut(linha3p8))
 
         self.remove(passo_8b)
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow.next_to(rref_matrix_p4, RIGHT)
+        self.play(Create(arrow), **{"run_time":0.4})
+
+        self.wait(3)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
         rref_matrix_p5 = Matrix(
-            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.5)
+            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.6)
 
         rref_matrix_p5_flat = VGroup(*VGroup(*rref_matrix_p5)[0])
 
@@ -418,7 +426,7 @@ class Start(Scene):
 
         passo_12b = Tex(r"E somamos com a segunda linha.")
 
-        passo_12b.shift(DOWN*2.8)
+        passo_12b.shift(DOWN*3.0)
 
         self.play(Write(passo_12b), **{"run_time":3})
 
