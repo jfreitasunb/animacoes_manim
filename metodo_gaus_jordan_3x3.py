@@ -79,6 +79,7 @@ class Start(Scene):
         passo_1.shift(DOWN*1.8)
         self.play(Write(passo_1), **{"run_time":3})
         self.wait()
+        self.play(FadeOut(primeira_entrada))
         self.play(FadeOut(passo_1))
         for i in VGroup(*rref_matrix)[1:]:
             self.play(Write(i))
@@ -119,7 +120,6 @@ class Start(Scene):
         self.play(Create(linha1p3), **{"run_time": 1})
 
         self.wait(3)
-        self.remove(passo_3a)
 
         passo_3b = Tex(r"E somamos com a segunda linha.")
 
@@ -133,6 +133,8 @@ class Start(Scene):
         )
 
         self.wait(3)
+
+        self.remove(passo_3a)
 
         self.remove(passo_3b)
 
@@ -166,7 +168,6 @@ class Start(Scene):
         self.play(Create(linha1p4), **{"run_time": 1})
 
         self.wait(3)
-        self.remove(passo_4a)
 
         passo_4b = Tex(r"E somamos com a terceira linha.")
 
@@ -182,6 +183,7 @@ class Start(Scene):
         self.wait(3)
 
         self.remove(linha3p4)
+        self.remove(passo_4a)
         self.remove(passo_4b)
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
@@ -205,11 +207,13 @@ class Start(Scene):
         primeira_entrada_segunda_linha = SurroundingRectangle(rref_matrix_p2.get_entries()[5], color=RED)
         self.play(Create(primeira_entrada_segunda_linha))
 
-        passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar multiplicar a segunda linha por 1/10.")
+        passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
         passo_5.shift(DOWN*1.8)
         self.play(Write(passo_5), **{"run_time":3})
         self.wait()
         self.play(FadeOut(passo_5))
+
+        self.play(FadeOut(primeira_entrada_segunda_linha))
 
         rref_matrix_p3 = Matrix(
             [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
@@ -269,6 +273,8 @@ class Start(Scene):
 
         self.wait(3)
 
+        self.play(FadeOut(linha1p7))
+
         self.remove(passo_3b)
 
         self.wait(3)
@@ -281,7 +287,7 @@ class Start(Scene):
 
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
         rref_matrix_p4 = Matrix(
-            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")])
+            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
         rref_matrix_p4_flat = VGroup(*VGroup(*rref_matrix_p4)[0])
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
@@ -323,6 +329,8 @@ class Start(Scene):
 
         self.wait(3)
 
+        self.play(FadeOut(linha3p8))
+
         self.remove(passo_8b)
 
         self.play(
@@ -330,7 +338,7 @@ class Start(Scene):
         )
 
         rref_matrix_p5 = Matrix(
-            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")])
+            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.5)
 
         rref_matrix_p5_flat = VGroup(*VGroup(*rref_matrix_p5)[0])
 
@@ -408,8 +416,6 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.remove(passo_12a)
-
         passo_12b = Tex(r"E somamos com a segunda linha.")
 
         passo_12b.shift(DOWN*2.8)
@@ -423,6 +429,10 @@ class Start(Scene):
         )
 
         self.wait(3)
+
+        self.play(FadeOut(linha2p12))
+
+        self.play(FadeOut(passo_12a))
 
         self.remove(passo_12b)
 
@@ -480,6 +490,8 @@ class Start(Scene):
 
         self.wait(3)
 
+        self.remove(linha1p13)
+
         self.remove(passo_13a)
 
         self.remove(passo_13b)
@@ -506,6 +518,8 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p7_temp[i], rref_matrix_p8_flat[i]), **{"run_time": 0.75})
+
+        self.wait(5)
 
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
@@ -537,6 +551,8 @@ class Start(Scene):
         passo_14b.shift(DOWN*1.5)
 
         self.play(Write(passo_14b), **{"run_time":3})
+
+        self.wait(5)
 
         for i in range(0,3):
             row = SurroundingRectangle(rref_matrix_p8.get_rows()[i])
