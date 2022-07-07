@@ -123,7 +123,7 @@ class Start(Scene):
 
         passo_3b = Tex(r"E somamos com a segunda linha.")
 
-        passo_3b.shift(DOWN*1.8)
+        passo_3b.shift(DOWN*2.0)
 
         self.play(Write(passo_3b), **{"run_time":3})
 
