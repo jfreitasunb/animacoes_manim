@@ -57,6 +57,7 @@ class Start(Scene):
         coefficient_matrix = Matrix(
             [("3", "1", "-2", "7"), ("1", "-3", "4", "15"), ("2", "-2", "1", "12")])
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
+
         for i in VGroup(*coefficient_matrix)[1:]:
             self.play(Write(i))
 
@@ -85,7 +86,9 @@ class Start(Scene):
         self.play(ApplyMethod(coefficient_matrix.shift, LEFT*3.5))
 
         separator1 = Line(LEFT*2.2 + UP*1.1, LEFT*2.2 + DOWN*1.1, color=YELLOW)
+
         separator2 = Line(RIGHT*4.2 + UP*1.1, RIGHT*4.2 + DOWN*1.1, color=YELLOW)
+
         self.play(Create(separator1), **{"run_time":0.15})
 
         for i in range(0,4):
@@ -93,6 +96,7 @@ class Start(Scene):
                 self.play(VGroup(*VGroup(*coefficient_matrix)[0])[i+4*j].animate.set_color(augmented_matrix_colors[i]),**{"run_time": 0.1})
 
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
+
         primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0], color=RED)
 
         self.play(Create(primeira_entrada))
@@ -163,6 +167,7 @@ class Start(Scene):
         passo_3a.shift(DOWN*1.8)
 
         linha1p3 = SurroundingRectangle(rref_matrix.get_rows()[0], color=BLUE)
+
         self.play(Write(passo_3a), Create(linha1p3), **{"run_time": 3})
 
         self.wait(3)
@@ -172,6 +177,7 @@ class Start(Scene):
         passo_3b.shift(DOWN*2.5)
 
         linha2p3 = SurroundingRectangle(rref_matrix.get_rows()[1], color=BLUE)
+
         self.play(ReplacementTransform(linha1p3,linha2p3), Write(passo_3b),**{"run_time":3})
 
         self.wait(3)
@@ -209,6 +215,7 @@ class Start(Scene):
         passo_4a.shift(DOWN*1.8)
 
         linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
+
         self.play(Write(passo_4a), Create(linha1p4), **{"run_time": 3})
 
         self.wait(3)
@@ -218,6 +225,7 @@ class Start(Scene):
         passo_4b.shift(DOWN*2.5)
 
         linha3p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[2], color=BLUE)
+
         self.play(ReplacementTransform(linha1p4,linha3p4), Write(passo_4b), **{"run_time": 3})
 
         self.wait(3)
@@ -308,9 +316,8 @@ class Start(Scene):
         passo_7b.shift(DOWN*3)
 
         linha1p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[0], color=BLUE)
-        self.play(
-                ReplacementTransform(linha2p7,linha1p7), Write(passo_7b), **{"run_time": 3}
-        )
+
+        self.play(ReplacementTransform(linha2p7,linha1p7), Write(passo_7b), **{"run_time": 3})
 
         self.wait(3)
 
@@ -520,7 +527,6 @@ class Start(Scene):
         rref_matrix_p8_flat = VGroup(*VGroup(*rref_matrix_p8)[0])
 
         rref_matrix_p8.next_to(arrow, RIGHT)
-
 
         for i in VGroup(*rref_matrix_p8)[1:]:
             self.play(Write(i))
