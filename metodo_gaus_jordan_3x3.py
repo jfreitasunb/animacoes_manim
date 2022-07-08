@@ -80,8 +80,7 @@ class Start(Scene):
                 self.play(Transform(toFade[-1], coefficient_matrix_flat[resultant]), **{"run_time":0.75})
 
         for fade in toFade:
-            self.play(FadeOut(fade), **{"run_time": 0.01}
-        )
+            self.remove(fade)
 
         self.play(ApplyMethod(coefficient_matrix.shift, LEFT*3.5))
 
