@@ -277,7 +277,7 @@ class Start(Scene):
         self.play(FadeOut(passo_5), FadeOut(primeira_entrada_segunda_linha), **{"run_time": 0.25})
 
         rref_matrix_p3 = Matrix(
-            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.5)
+            [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.6)
 
         rref_matrix_p2_temp = VGroup(*VGroup(*rref_matrix_p2)[0]).copy()
 
@@ -297,6 +297,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p3_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p2_temp[i], rref_matrix_p3_flat[i]), **{"run_time": 0.75})
+
+        separator5 = Line(LEFT*3.1 + DOWN*1.5, LEFT*3.1 + UP*0.7, color=YELLOW)
+
+        self.play(Create(separator5), **{"run_time": 0.25})
 
         passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
 
@@ -353,6 +357,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p3_flat[i], rref_matrix_p4_flat[i]), **{"run_time": 0.75})
+
+        separator6 = Line(RIGHT*4.4 + DOWN*1.5, RIGHT*4.4 + UP*0.7, color=YELLOW)
+
+        self.play(Create(separator6), **{"run_time": 0.25})
 
         passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
 
