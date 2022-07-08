@@ -210,6 +210,10 @@ class Start(Scene):
             rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Write(rref_matrix_p1_flat[i]), **{"run_time": 0.75})
 
+        separator3 = Line(LEFT*3.1 + UP*3.4, LEFT*3.1 + UP*1.1, color=YELLOW)
+
+        self.play(Create(separator3), **{"run_time": 0.25})
+
         passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
 
         passo_4a.shift(DOWN*1.8)
@@ -236,6 +240,7 @@ class Start(Scene):
 
         rref_matrix_p2 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("0", "4", "-7", "-18")])
+
         rref_matrix_p2_flat = VGroup(*VGroup(*rref_matrix_p2)[0])
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
@@ -252,6 +257,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p1_flat[i], rref_matrix_p2_flat[i]), **{"run_time": 0.75})
+
+        separator4 = Line(RIGHT*3.2 + UP*3.4, RIGHT*3.2 + UP*1.1, color=YELLOW)
+
+        self.play(Create(separator4), **{"run_time": 0.25})
 
         primeira_entrada_segunda_linha = SurroundingRectangle(rref_matrix_p2.get_entries()[5], color=RED)
 
