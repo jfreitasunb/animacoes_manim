@@ -384,7 +384,7 @@ class Start(Scene):
 
         self.play(FadeOut(linha3p8), FadeOut(passo_8a), FadeOut(passo_8b), **{"run_time": 0.25})
 
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        arrow = Arrow(LEFT*0.9, RIGHT*0.3)
 
         arrow.next_to(rref_matrix_p4, RIGHT)
 
@@ -409,6 +409,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p5_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Write(rref_matrix_p5_flat[i]), **{"run_time": 0.75})
+
+        separator7 = Line(LEFT*2.65 + UP*3.4, LEFT*2.65 + UP*1.1, color=YELLOW)
+
+        self.play(Create(separator7), **{"run_time": 0.25})
 
         primeira_entrada_terceira_linha = SurroundingRectangle(rref_matrix_p5.get_entries()[10], color=RED)
 
