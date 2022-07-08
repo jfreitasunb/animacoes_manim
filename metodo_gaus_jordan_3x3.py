@@ -306,8 +306,6 @@ class Start(Scene):
 
         self.play(FadeOut(linha1p7), FadeOut(passo_7a), FadeOut(passo_7b), **{"run_time": 0.25})
 
-        self.wait(3)
-
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
         rref_matrix_p4 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.7)
@@ -417,7 +415,7 @@ class Start(Scene):
 
         self.wait(3)
 
-        self.play(coluna3, FadeOut(passo_11), **{"run_time": 0.25})
+        self.play(FadeOut(coluna3), FadeOut(passo_11), **{"run_time": 0.25})
 
         passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
@@ -435,7 +433,7 @@ class Start(Scene):
 
         linha2p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[1], color=BLUE)
 
-        self.play(ReplacementTransform(linha3p12,linha2p12),Write(passo_12a), **{"run_time": 3})
+        self.play(ReplacementTransform(linha3p12,linha2p12), Write(passo_12b), **{"run_time": 3})
 
         self.wait(3)
 
