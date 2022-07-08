@@ -297,20 +297,16 @@ class Start(Scene):
 
         passo_7b.shift(DOWN*3)
 
-        self.play(Write(passo_7b), **{"run_time":3})
-
         linha1p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[0], color=BLUE)
         self.play(
-            ReplacementTransform(linha2p7,linha1p7),
+                ReplacementTransform(linha2p7,linha1p7), Write(passo_7b), **{"run_time": 3}
         )
 
         self.wait(3)
 
-        self.play(FadeOut(linha1p7), FadeOut(passo_7b), **{"run_time": 0.25})
+        self.play(FadeOut(linha1p7), FadeOut(passo_7a), FadeOut(passo_7b), **{"run_time": 0.25})
 
         self.wait(3)
-
-        self.play(FadeOut(coluna2), FadeOut(passo_7a), FadeOut(passo_7b), **{"run_time": 0.25})
 
         rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
         rref_matrix_p4 = Matrix(
@@ -344,15 +340,13 @@ class Start(Scene):
 
         passo_8b.shift(DOWN*2.8)
 
-        self.play(Write(passo_8b), **{"run_time":3})
-
         linha3p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[2], color=BLUE)
 
         self.play(ReplacementTransform(linha2p8,linha3p8), Write(passo_8b), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(linha3p8), FadeOut(passo_8a), FadeOut(passo_8a), **{"run_time": 0.25})
+        self.play(FadeOut(linha3p8), FadeOut(passo_8a), FadeOut(passo_8b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
         arrow.next_to(rref_matrix_p4, RIGHT)
@@ -417,15 +411,13 @@ class Start(Scene):
 
         passo_11.shift(DOWN*2.5)
 
-        self.play(Write(passo_11), **{"run_time":3})
-
         coluna3 = SurroundingRectangle(rref_matrix_p6.get_columns()[2], color=BLUE)
 
-        self.play(Create(coluna3), **{"run_time":0.4})
+        self.play(Create(coluna3), Write(passo_11), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(passo_11), **{"run_time": 0.25})
+        self.play(coluna3, FadeOut(passo_11), **{"run_time": 0.25})
 
         passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
@@ -491,15 +483,13 @@ class Start(Scene):
 
         passo_13b.shift(DOWN*3.0)
 
-        self.play(Write(passo_13b), **{"run_time":3})
-
         linha1p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[0], color=BLUE)
 
-        self.play(ReplacementTransform(linha3p13,linha1p13),Write(passo_13b), **{"run_time": 3})
+        self.play(ReplacementTransform(linha3p13,linha1p13), Write(passo_13b), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(linha1p13), FadeOut(passo_13b), **{"run_time": 0.25})
+        self.play(FadeOut(linha1p13), FadeOut(passo_13a), FadeOut(passo_13b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
