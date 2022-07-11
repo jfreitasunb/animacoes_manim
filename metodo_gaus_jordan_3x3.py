@@ -429,7 +429,7 @@ class Start(Scene):
         self.play(FadeOut(passo_10), FadeOut(primeira_entrada_terceira_linha), **{"run_time": 0.25})
 
         rref_matrix_p6 = Matrix(
-            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.5)
+            [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.6)
 
         rref_matrix_p5_temp = VGroup(*VGroup(*rref_matrix_p5)[0]).copy()
 
@@ -449,6 +449,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p6_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p5_temp[i], rref_matrix_p6_flat[i]), **{"run_time": 0.75})
+
+        separator8 = Line(RIGHT*4.6 + UP*3.4, RIGHT*4.6 + UP*1.1, color=YELLOW)
+
+        self.play(Create(separator8), **{"run_time": 0.25})
 
         passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
 
@@ -506,6 +510,10 @@ class Start(Scene):
             rref_matrix_p7_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p6_temp[i], rref_matrix_p7_flat[i]), **{"run_time": 0.75})
 
+        separator9 = Line(LEFT*2.5 + DOWN*1.9, LEFT*2.5 + UP*0.5, color=YELLOW)
+
+        self.play(Create(separator9), **{"run_time": 0.25})
+
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
         arrow.next_to(rref_matrix_p6, RIGHT)
@@ -556,6 +564,10 @@ class Start(Scene):
             rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Transform(rref_matrix_p7_temp[i], rref_matrix_p8_flat[i]), **{"run_time": 0.75})
 
+        separator10 = Line(RIGHT*4.65 + DOWN*1.9, RIGHT*4.65 + UP*0.5, color=YELLOW)
+
+        self.play(Create(separator10), **{"run_time":0.15})
+
         self.wait(5)
 
         self.play(
@@ -581,6 +593,10 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
             self.play(Write(rref_matrix_p8_flat[i]), **{"run_time": 0.75})
+
+        separator11 = Line(RIGHT*1.5 + DOWN*0.1, RIGHT*1.5 + UP*2.1, color=YELLOW)
+
+        self.play(Create(separator11), **{"run_time":0.15})
 
         passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 
