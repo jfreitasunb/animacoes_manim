@@ -27,49 +27,101 @@ for eqn in equations_array:
 augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
 ####Textos presentes no vídeo############
-title = Tex(r"Encontre a solução do sistema linear:")
+texto_br = True
 
-primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
+if texto_br == True:
+    title = Tex(r"Encontre a solução do sistema linear:")
 
-passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
+    subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordam para encontrar a solução do sistema.")
 
-passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
+    primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
 
-passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
+    passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
 
-passo_3b = Tex(r"E somamos com a segunda linha.")
+    passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
 
-passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
+    passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
 
-passo_4b = Tex(r"E somamos com a terceira linha.")
+    passo_3b = Tex(r"E somamos com a segunda linha.")
 
-passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
+    passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
 
-passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
+    passo_4b = Tex(r"E somamos com a terceira linha.")
 
-passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
+    passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
 
-passo_7b = Tex(r"E somamos com a primeira linha.")
+    passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
 
-passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
+    passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
 
-passo_8b = Tex(r"E somamos com a terceira linha.")
+    passo_7b = Tex(r"E somamos com a primeira linha.")
 
-passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+    passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
 
-passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+    passo_8b = Tex(r"E somamos com a terceira linha.")
 
-passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
+    passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
 
-passo_12b = Tex(r"E somamos com a segunda linha.")
+    passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
 
-passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
+    passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
-passo_13b = Tex(r"E somamos com a primeira linha.")
+    passo_12b = Tex(r"E somamos com a segunda linha.")
 
-passo_14a = Tex(r"A matriz resultante desse último passo:")
+    passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
 
-passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+    passo_13b = Tex(r"E somamos com a primeira linha.")
+
+    passo_14a = Tex(r"A matriz resultante desse último passo:")
+
+    passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+else:
+    title = Tex(r"Encontre a solução do sistema linear:")
+
+    subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordam para encontrar a solução do sistema.")
+
+    primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
+
+    passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
+
+    passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
+
+    passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
+
+    passo_3b = Tex(r"E somamos com a segunda linha.")
+
+    passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
+
+    passo_4b = Tex(r"E somamos com a terceira linha.")
+
+    passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
+
+    passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
+
+    passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
+
+    passo_7b = Tex(r"E somamos com a primeira linha.")
+
+    passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
+
+    passo_8b = Tex(r"E somamos com a terceira linha.")
+
+    passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+
+    passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+
+    passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
+
+    passo_12b = Tex(r"E somamos com a segunda linha.")
+
+    passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
+
+    passo_13b = Tex(r"E somamos com a primeira linha.")
+
+    passo_14a = Tex(r"A matriz resultante desse último passo:")
+
+    passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+
 
 def finishScene(self):
     self.play(*[FadeOut(mob) for mob in self.mobjects])
@@ -78,11 +130,11 @@ class Start(Scene):
     def construct(self):
         self.play(DrawBorderThenFill(l.logo_principal()[0]), Write(l.logo_principal()[1]), **{"run_time" : 6})
 
-        self.wait(4)
+        self.wait(2)
 
         self.play(FadeOut(l.logo_principal()[0]), FadeOut(l.logo_principal()[1]), **{"run_time":0.75})
 
-        self.wait(3)
+        self.wait(2)
 
         self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
@@ -100,11 +152,17 @@ class Start(Scene):
 
         self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
 
-        self.wait(0.5)
+        self.wait(1)
+
+        self.play(Write(subtitle), run_time = 5)
+
+        self.wait(3)
+
+        self.play(FadeOut(subtitle), run_time=1.5)
 
         self.play(Write(primeiro_passo), run_time = 5)
 
-        self.wait(2.5)
+        self.wait(3)
 
         self.play(FadeOut(primeiro_passo), run_time=3)
 
