@@ -1,4 +1,8 @@
 from manim import *
+#import sys
+#import os
+#sys.path.append(os.path.abspath("/home/jfreitas/manim"))
+#from logo import *
 
 first_eqn = MathTex("3", "x_{1}", "+", "1", "y_{1}", "-", "2", "z_{1}", "=", "7")
 
@@ -22,11 +26,47 @@ for eqn in equations_array:
 
 augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
+
+text = VGroup()
+text1 = Tex(r"$\Sigma$", color=RED,font_size=174)
+text2 = Text("Math", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+text3 = Text("Exercicises", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+
+text.add(text2, text3)
+text.arrange(DOWN, center = False, aligned_edge = LEFT)
+
+text.next_to(text1, RIGHT)
+
+texto_logo = VGroup()
+
+texto_logo.add(text1, text)
+circle_logo = Circle(fill_opacity=5).scale(2.2)
+circle_logo.set_fill()
+circle_logo.set_color(GREEN)
+
+circle_logo_right_corner = circle_logo.scale(0.2)
+texto_logo_right_corner = texto_logo.scale(0.2)
+
+def logo_principal():
+    texto_logo.next_to(circle_logo, 0, buff=1).scale(0.9)
+
+    return texto_logo
+
+def logo_right_corner(texto_logo_right_corner, circle_logo_right_corner):
+    return VGroup(circle_logo_right_corner.to_corner(DOWN + RIGHT), texto_logo_right_corner.next_to(circle_logo_right_corner, 0, buff = 1))
+
 def finishScene(self):
     self.play(*[FadeOut(mob) for mob in self.mobjects])
 
 class Start(Scene):
     def construct(self):
+        texto_logo = logo_principal()
+        self.play(DrawBorderThenFill(circle_logo), Write(texto_logo), **{"run_time" : 6})
+
+        self.play(FadeOut(circle_logo), FadeOut(texto_logo), **{"run_time":0.75})
+        self.wait(3)
+        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+
         title = Tex(r"Encontre a solução do sistema linear:")
 
         VGroup(title, equations).arrange(DOWN)
@@ -195,6 +235,8 @@ class Start(Scene):
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
         )
+
+        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
 
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("2", "-2", "1", "12")])
@@ -396,6 +438,8 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
+        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+
         rref_matrix_p5 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.6)
 
@@ -413,6 +457,8 @@ class Start(Scene):
         separator7 = Line(LEFT*2.65 + UP*3.4, LEFT*2.65 + UP*1.1, color=YELLOW)
 
         self.play(Create(separator7), **{"run_time": 0.25})
+
+        self.wait(2)
 
         primeira_entrada_terceira_linha = SurroundingRectangle(rref_matrix_p5.get_entries()[10], color=RED)
 
@@ -573,6 +619,8 @@ class Start(Scene):
         self.play(
             *[FadeOut(mob)for mob in self.mobjects]
         )
+
+        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
 
         passo_14a = Tex(r"A matriz resultante desse último passo:")
 
