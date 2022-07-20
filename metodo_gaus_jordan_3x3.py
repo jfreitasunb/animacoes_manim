@@ -60,21 +60,21 @@ if texto_br == True:
 
     passo_8b = Tex(r"E somamos com a terceira linha.")
 
-    passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+    passo_9 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
 
-    passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+    passo_10 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
 
-    passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
+    passo_11a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
-    passo_12b = Tex(r"E somamos com a segunda linha.")
+    passo_11b = Tex(r"E somamos com a segunda linha.")
 
-    passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
+    passo_12a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
 
-    passo_13b = Tex(r"E somamos com a primeira linha.")
+    passo_12b = Tex(r"E somamos com a primeira linha.")
 
-    passo_14a = Tex(r"A matriz resultante desse último passo:")
+    passo_13a = Tex(r"A matriz resultante desse último passo:")
 
-    passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+    passo_13b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 else:
     title = Tex(r"Encontre a solução do sistema linear:")
 
@@ -106,21 +106,21 @@ else:
 
     passo_8b = Tex(r"E somamos com a terceira linha.")
 
-    passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+    passo_9 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
 
-    passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+    passo_10 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
 
-    passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
+    passo_11a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
 
-    passo_12b = Tex(r"E somamos com a segunda linha.")
+    passo_11b = Tex(r"E somamos com a segunda linha.")
 
-    passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
+    passo_12a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
 
-    passo_13b = Tex(r"E somamos com a primeira linha.")
+    passo_12b = Tex(r"E somamos com a primeira linha.")
 
-    passo_14a = Tex(r"A matriz resultante desse último passo:")
+    passo_13a = Tex(r"A matriz resultante desse último passo:")
 
-    passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+    passo_13b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 
 
 def finishScene(self):
@@ -512,13 +512,13 @@ class Start(Scene):
 
         self.play(Create(primeira_entrada_terceira_linha))
 
-        passo_10.shift(DOWN*1.8)
+        passo_9.shift(DOWN*1.8)
 
-        self.play(Write(passo_10), **{"run_time":3})
+        self.play(Write(passo_9), **{"run_time":3})
 
         self.wait()
 
-        self.play(FadeOut(passo_10), FadeOut(primeira_entrada_terceira_linha), **{"run_time": 0.25})
+        self.play(FadeOut(passo_9), FadeOut(primeira_entrada_terceira_linha), **{"run_time": 0.25})
 
         rref_matrix_p6 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "1", "2")], h_buff=1.6)
@@ -546,33 +546,33 @@ class Start(Scene):
 
         self.play(Create(separator8), **{"run_time": 0.25})
 
-        passo_11.shift(DOWN*2.5)
+        passo_10.shift(DOWN*2.5)
 
         coluna3 = SurroundingRectangle(rref_matrix_p6.get_columns()[2], color=BLUE)
 
-        self.play(Create(coluna3), Write(passo_11), **{"run_time": 3})
+        self.play(Create(coluna3), Write(passo_10), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(coluna3), FadeOut(passo_11), **{"run_time": 0.25})
+        self.play(FadeOut(coluna3), FadeOut(passo_10), **{"run_time": 0.25})
 
-        passo_12a.shift(DOWN*2.3)
+        passo_11a.shift(DOWN*2.3)
 
-        linha3p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
+        linha3p11 = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
 
-        self.play(Write(passo_12a), Create(linha3p12), **{"run_time": 3})
-
-        self.wait(3)
-
-        passo_12b.shift(DOWN*3.0)
-
-        linha2p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[1], color=BLUE)
-
-        self.play(ReplacementTransform(linha3p12,linha2p12), Write(passo_12b), **{"run_time": 3})
+        self.play(Write(passo_11a), Create(linha3p11), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(linha2p12), FadeOut(passo_12a), FadeOut(passo_12b), **{"run_time": 0.25})
+        passo_11b.shift(DOWN*3.0)
+
+        linha2p11 = SurroundingRectangle(rref_matrix_p6.get_rows()[1], color=BLUE)
+
+        self.play(ReplacementTransform(linha3p11,linha2p11), Write(passo_11b), **{"run_time": 3})
+
+        self.wait(3)
+
+        self.play(FadeOut(linha2p11), FadeOut(passo_11a), FadeOut(passo_11b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
@@ -606,23 +606,23 @@ class Start(Scene):
 
         self.play(Create(arrow), **{"run_time":0.4})
 
-        passo_13a.shift(DOWN*2.5)
+        passo_12a.shift(DOWN*2.5)
 
-        linha3p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[2], color=BLUE)
+        linha3p12 = SurroundingRectangle(rref_matrix_p7.get_rows()[2], color=BLUE)
 
-        self.play(Write(passo_13a), Create(linha3p13), **{"run_time": 3})
-
-        self.wait(3)
-
-        passo_13b.shift(DOWN*3.0)
-
-        linha1p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[0], color=BLUE)
-
-        self.play(ReplacementTransform(linha3p13,linha1p13), Write(passo_13b), **{"run_time": 3})
+        self.play(Write(passo_12a), Create(linha3p12), **{"run_time": 3})
 
         self.wait(3)
 
-        self.play(FadeOut(linha1p13), FadeOut(passo_13a), FadeOut(passo_13b), **{"run_time": 0.25})
+        passo_12b.shift(DOWN*3.0)
+
+        linha1p12 = SurroundingRectangle(rref_matrix_p7.get_rows()[0], color=BLUE)
+
+        self.play(ReplacementTransform(linha3p12, linha1p12), Write(passo_12b), **{"run_time": 3})
+
+        self.wait(3)
+
+        self.play(FadeOut(linha1p12), FadeOut(passo_12a), FadeOut(passo_12b), **{"run_time": 0.25})
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
@@ -658,9 +658,9 @@ class Start(Scene):
 
         self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
-        passo_14a.shift(UP*3)
+        passo_13a.shift(UP*3)
 
-        self.play(Write(passo_14a), **{"run_time":3})
+        self.play(Write(passo_13a), **{"run_time":3})
 
         rref_matrix_p8 = Matrix(
             [("1", "0", "0", "4"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
@@ -680,9 +680,9 @@ class Start(Scene):
 
         self.play(Create(separator11), **{"run_time":0.15})
 
-        passo_14b.shift(DOWN*1.5)
+        passo_13b.shift(DOWN*1.5)
 
-        self.play(Write(passo_14b), **{"run_time":3})
+        self.play(Write(passo_13b), **{"run_time":3})
 
         self.wait(5)
 
