@@ -84,7 +84,7 @@ else:
 
     passo_1 = Tex(r"This coefficient is different from 1 \\ so we are going to swap the first and second row.")
 
-    passo_2= Tex(r"Now lets cancel the coefficients\\ in the first column thar are bellow 1.")
+    passo_2= Tex(r"Now lets cancel the coefficients\\ in the first column that are bellow 1.")
 
     passo_3a = Tex(r"We start by multiplying the first row by -3.")
 
@@ -94,7 +94,7 @@ else:
 
     passo_4b = Tex(r"And we add it to the third row.")
 
-    passo_5 = Tex(r"This coefficient is different from 1, so we are going to multiply the second row by 1/10.")
+    passo_5 = Tex(r"This coefficient is different from 1,\\ so we are going to multiply the second row by 1/10.")
 
     passo_6= Tex(r"Now lets cancel the coefficients\\ in the second row that are above and below 1.")
 
@@ -106,7 +106,7 @@ else:
 
     passo_8b = Tex(r"And add it to the third row.")
 
-    passo_9 = Tex(r"This coefficient is different from 1\\ and so we multiply the third row by -5/7.")
+    passo_9 = Tex(r"This coefficient is different from 1,\\ so we multiply the third row by -5/7.")
 
     passo_10 = Tex(r"Lets cancel the coefficients in the third column that are above 1.")
 
