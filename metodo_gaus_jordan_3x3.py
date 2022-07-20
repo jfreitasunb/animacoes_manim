@@ -78,13 +78,13 @@ if texto_br == True:
 else:
     title = Tex(r"Find the solution of the linear system:")
 
-    subtitle = Tex(r"We are going to apply the Gauss-Jordan Algorithm to find the solution of the linear system.")
+    subtitle = Tex(r"We are going to apply the Gauss-Jordan Algorithm\\ to find the solution of the linear system.")
 
     primeiro_passo = Tex(r"First we write the augmented matrix of the system:")
 
     passo_1 = Tex(r"This coefficient is different from 1 \\ so we are going to swap the first and second row.")
 
-    passo_2= Tex(r"Now lets cancel the coefficients in the first column thar are bellow 1.")
+    passo_2= Tex(r"Now lets cancel the coefficients\\ in the first column thar are bellow 1.")
 
     passo_3a = Tex(r"We start by multiplying the first row by -3.")
 
@@ -96,7 +96,7 @@ else:
 
     passo_5 = Tex(r"This coefficient is different from 1, so we are going to multiply the second row by 1/10.")
 
-    passo_6= Tex(r"Now lets cancel the coefficients in the second row that are above 1.")
+    passo_6= Tex(r"Now lets cancel the coefficients\\ in the second row that are above and below 1.")
 
     passo_7a = Tex(r"We start by multiplying the second row by 3.")
 
@@ -106,7 +106,7 @@ else:
 
     passo_8b = Tex(r"And add it to the third row.")
 
-    passo_9 = Tex(r"This coefficient is different from 1 and so we multiply the third row by -5/7.")
+    passo_9 = Tex(r"This coefficient is different from 1\\ and so we multiply the third row by -5/7.")
 
     passo_10 = Tex(r"Lets cancel the coefficients in the third column that are above 1.")
 
@@ -120,7 +120,7 @@ else:
 
     passo_13a = Tex(r"The matrix resulting from this last step:")
 
-    passo_13b = Tex(r"is in the reduced row echolon form. Thus, the linear systema admits a unique solution that will be:")
+    passo_13b = Tex(r"is in the reduced row echolon form.\\ Thus, the linear systema admits a unique solution that will be:")
 
 
 def finishScene(self):
