@@ -1,8 +1,8 @@
 from manim import *
-#import sys
-#import os
-#sys.path.append(os.path.abspath("/home/jfreitas/manim"))
-#from logo import *
+import sys
+import os
+sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
+from logo import Logo as l
 
 first_eqn = MathTex("3", "x_{1}", "+", "1", "y_{1}", "-", "2", "z_{1}", "=", "7")
 
@@ -15,7 +15,7 @@ equations_array = [first_eqn, second_eqn, third_eqn]
 equations = MobjectMatrix(
     [[first_eqn], [second_eqn], [third_eqn]],
     left_bracket="\\{",
-    right_bracket="\\")
+    right_bracket="\\.")
 
 for eqn in equations_array:
     eqn.set_color_by_tex_to_color_map({
@@ -28,12 +28,15 @@ augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
 class Start(Scene):
     def construct(self):
-        texto_logo = logo_principal()
-        self.play(DrawBorderThenFill(circle_logo), Write(texto_logo), **{"run_time" : 6})
+        self.play(DrawBorderThenFill(l.logo_principal()[0]), Write(l.logo_principal()[1]), **{"run_time" : 6})
 
-        self.play(FadeOut(circle_logo), FadeOut(texto_logo), **{"run_time":0.75})
+        self.wait(4)
+
+        self.play(FadeOut(l.logo_principal()[0]), FadeOut(l.logo_principal()[1]), **{"run_time":0.75})
+
         self.wait(3)
-        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+
+        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
         title = Tex(r"Encontre a solução do sistema linear:")
 
@@ -41,7 +44,6 @@ class Start(Scene):
 
         self.play(
             Write(title),
-
             FadeIn(equations, shift=UP),
         )
         self.wait()
@@ -204,7 +206,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("2", "-2", "1", "12")])
@@ -406,7 +408,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
         rref_matrix_p5 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.6)
@@ -588,7 +590,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[0]), Write(logo_right_corner(texto_logo_right_corner, circle_logo_right_corner)[1]))
+        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
         passo_14a = Tex(r"A matriz resultante desse último passo:")
 
