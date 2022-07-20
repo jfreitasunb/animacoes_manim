@@ -20,9 +20,9 @@ circle_logo.set_color(GREEN)
 circle_logo_right_corner = circle_logo.copy().scale(0.3)
 texto_logo_right_corner = texto_logo.copy().scale(0.3)
 
-texto_final_1 = Tex(r"Thanks for watching!", color=RED, font_size=174)
+texto_final_1 = Tex(r"Thanks for watching!", color=RED, font_size=100)
 
-texto_final_2 = Tex(r"Don't forget to like, share and subscribe!", color=RED, font_size=174)
+texto_final_2 = Tex(r"Don't forget to like,\\ share and subscribe!", color=RED, font_size=100)
 
 class Logo(Scene):
     CONFIG = {
