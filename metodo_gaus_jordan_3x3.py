@@ -15,7 +15,7 @@ equations_array = [first_eqn, second_eqn, third_eqn]
 equations = MobjectMatrix(
     [[first_eqn], [second_eqn], [third_eqn]],
     left_bracket="\\{",
-    right_bracket="\\.")
+    right_bracket="\\")
 
 for eqn in equations_array:
     eqn.set_color_by_tex_to_color_map({
@@ -70,6 +70,10 @@ passo_13b = Tex(r"E somamos com a primeira linha.")
 passo_14a = Tex(r"A matriz resultante desse último passo:")
 
 passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
+
+def finishScene(self):
+    self.play(*[FadeOut(mob) for mob in self.mobjects])
+
 class Start(Scene):
     def construct(self):
         self.play(DrawBorderThenFill(l.logo_principal()[0]), Write(l.logo_principal()[1]), **{"run_time" : 6})
