@@ -26,6 +26,50 @@ for eqn in equations_array:
 
 augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
+####Textos presentes no vídeo############
+title = Tex(r"Encontre a solução do sistema linear:")
+
+primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
+
+passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
+
+passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
+
+passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
+
+passo_3b = Tex(r"E somamos com a segunda linha.")
+
+passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
+
+passo_4b = Tex(r"E somamos com a terceira linha.")
+
+passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
+
+passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
+
+passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
+
+passo_7b = Tex(r"E somamos com a primeira linha.")
+
+passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
+
+passo_8b = Tex(r"E somamos com a terceira linha.")
+
+passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
+
+passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
+
+passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
+
+passo_12b = Tex(r"E somamos com a segunda linha.")
+
+passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
+
+passo_13b = Tex(r"E somamos com a primeira linha.")
+
+passo_14a = Tex(r"A matriz resultante desse último passo:")
+
+passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 class Start(Scene):
     def construct(self):
         self.play(DrawBorderThenFill(l.logo_principal()[0]), Write(l.logo_principal()[1]), **{"run_time" : 6})
@@ -37,8 +81,6 @@ class Start(Scene):
         self.wait(3)
 
         self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
-
-        title = Tex(r"Encontre a solução do sistema linear:")
 
         VGroup(title, equations).arrange(DOWN)
 
@@ -55,8 +97,6 @@ class Start(Scene):
         self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
 
         self.wait(0.5)
-
-        primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
 
         self.play(Write(primeiro_passo), run_time = 5)
 
@@ -118,8 +158,6 @@ class Start(Scene):
 
         rref_matrix.shift(RIGHT*3)
 
-        passo_1 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos trocar a primeira linha com a segunda linha.")
-
         passo_1.shift(DOWN*1.8)
 
         self.play(Write(passo_1), **{"run_time": 3})
@@ -158,8 +196,6 @@ class Start(Scene):
 
         self.wait()
 
-        passo_2= Tex(r"Agora vamos zerar os coeficiente \\ na primeira coluna que estão abaixo do 1.")
-
         passo_2.shift(DOWN*1.8)
 
         coluna1 = SurroundingRectangle(rref_matrix.get_columns()[0], color=BLUE)
@@ -172,8 +208,6 @@ class Start(Scene):
 
         self.play(FadeOut(passo_2), FadeOut(coluna1), **{"run_time": 0.25})
 
-        passo_3a = Tex(r"Começamos multiplicando a primeira linha por -3.")
-
         passo_3a.shift(DOWN*1.8)
 
         linha1p3 = SurroundingRectangle(rref_matrix.get_rows()[0], color=BLUE)
@@ -181,8 +215,6 @@ class Start(Scene):
         self.play(Write(passo_3a), Create(linha1p3), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_3b = Tex(r"E somamos com a segunda linha.")
 
         passo_3b.shift(DOWN*2.5)
 
@@ -226,8 +258,6 @@ class Start(Scene):
 
         self.play(Create(separator3), **{"run_time": 0.25})
 
-        passo_4a = Tex(r"Agora multiplicamos a primeira linha por -2.")
-
         passo_4a.shift(DOWN*1.8)
 
         linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
@@ -235,8 +265,6 @@ class Start(Scene):
         self.play(Write(passo_4a), Create(linha1p4), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_4b = Tex(r"E somamos com a terceira linha.")
 
         passo_4b.shift(DOWN*2.5)
 
@@ -278,8 +306,6 @@ class Start(Scene):
 
         self.play(Create(primeira_entrada_segunda_linha))
 
-        passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
-
         passo_5.shift(DOWN*1.8)
 
         self.play(Write(passo_5), **{"run_time":3})
@@ -314,8 +340,6 @@ class Start(Scene):
 
         self.play(Create(separator5), **{"run_time": 0.25})
 
-        passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
-
         passo_6.shift(DOWN*2.5)
 
         coluna2 = SurroundingRectangle(rref_matrix_p3.get_columns()[1], color=BLUE)
@@ -326,8 +350,6 @@ class Start(Scene):
 
         self.play(FadeOut(passo_6), FadeOut(coluna2), **{"run_time": 0.25})
 
-        passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
-
         passo_7a.shift(DOWN*2.5)
 
         linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
@@ -335,8 +357,6 @@ class Start(Scene):
         self.play(Write(passo_7a), Create(linha2p7), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_7b = Tex(r"E somamos com a primeira linha.")
 
         passo_7b.shift(DOWN*3)
 
@@ -374,8 +394,6 @@ class Start(Scene):
 
         self.play(Create(separator6), **{"run_time": 0.25})
 
-        passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
-
         passo_8a.shift(DOWN*2.3)
 
         linha2p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[1], color=BLUE)
@@ -383,8 +401,6 @@ class Start(Scene):
         self.play(Write(passo_8a), Create(linha2p8), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_8b = Tex(r"E somamos com a terceira linha.")
 
         passo_8b.shift(DOWN*2.8)
 
@@ -434,8 +450,6 @@ class Start(Scene):
 
         self.play(Create(primeira_entrada_terceira_linha))
 
-        passo_10 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
-
         passo_10.shift(DOWN*1.8)
 
         self.play(Write(passo_10), **{"run_time":3})
@@ -470,8 +484,6 @@ class Start(Scene):
 
         self.play(Create(separator8), **{"run_time": 0.25})
 
-        passo_11 = Tex(r"Agora vamos zerar os coeficiente \\ na terceira coluna que estão acima do 1.")
-
         passo_11.shift(DOWN*2.5)
 
         coluna3 = SurroundingRectangle(rref_matrix_p6.get_columns()[2], color=BLUE)
@@ -482,8 +494,6 @@ class Start(Scene):
 
         self.play(FadeOut(coluna3), FadeOut(passo_11), **{"run_time": 0.25})
 
-        passo_12a = Tex(r"Começamos multiplicando a terceira linha por 7/5.")
-
         passo_12a.shift(DOWN*2.3)
 
         linha3p12 = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
@@ -491,8 +501,6 @@ class Start(Scene):
         self.play(Write(passo_12a), Create(linha3p12), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_12b = Tex(r"E somamos com a segunda linha.")
 
         passo_12b.shift(DOWN*3.0)
 
@@ -536,8 +544,6 @@ class Start(Scene):
 
         self.play(Create(arrow), **{"run_time":0.4})
 
-        passo_13a = Tex(r"Agora multiplicamos a terceira linha por 1/5.")
-
         passo_13a.shift(DOWN*2.5)
 
         linha3p13 = SurroundingRectangle(rref_matrix_p7.get_rows()[2], color=BLUE)
@@ -545,8 +551,6 @@ class Start(Scene):
         self.play(Write(passo_13a), Create(linha3p13), **{"run_time": 3})
 
         self.wait(3)
-
-        passo_13b = Tex(r"E somamos com a primeira linha.")
 
         passo_13b.shift(DOWN*3.0)
 
@@ -592,8 +596,6 @@ class Start(Scene):
 
         self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
 
-        passo_14a = Tex(r"A matriz resultante desse último passo:")
-
         passo_14a.shift(UP*3)
 
         self.play(Write(passo_14a), **{"run_time":3})
@@ -615,8 +617,6 @@ class Start(Scene):
         separator11 = Line(RIGHT*1.5 + DOWN*0.1, RIGHT*1.5 + UP*2.1, color=YELLOW)
 
         self.play(Create(separator11), **{"run_time":0.15})
-
-        passo_14b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 
         passo_14b.shift(DOWN*1.5)
 
