@@ -136,7 +136,7 @@ class Start(Scene):
 
         self.wait(2)
 
-        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
+        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
         VGroup(title, equations).arrange(DOWN)
 
@@ -300,7 +300,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
+        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
         rref_matrix_p1 = Matrix(
             [("1", "-3", "4", "15"), ("0", "10", "-14", "-38"), ("2", "-2", "1", "12")])
@@ -486,7 +486,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
+        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
         rref_matrix_p5 = Matrix(
             [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "0", "-7/5", "-14/5")], h_buff=1.6)
@@ -656,7 +656,7 @@ class Start(Scene):
             *[FadeOut(mob)for mob in self.mobjects]
         )
 
-        self.play(Write(l.logo_right_corner()[0]), Write(l.logo_right_corner()[1]))
+        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
         passo_13a.shift(UP*3)
 
@@ -710,5 +710,7 @@ class Start(Scene):
 
             self.remove(row)
         finishScene(self)
+
+        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
         l.fechamento(self)
