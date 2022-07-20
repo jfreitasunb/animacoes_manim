@@ -20,6 +20,10 @@ circle_logo.set_color(GREEN)
 circle_logo_right_corner = circle_logo.copy().scale(0.3)
 texto_logo_right_corner = texto_logo.copy().scale(0.3)
 
+texto_final_1 = Tex(r"Thanks for watching!", color=RED, font_size=174)
+
+texto_final_2 = Tex(r"Don't forget to like, share and subscribe!", color=RED, font_size=174)
+
 class Logo(Scene):
     CONFIG = {
         "camera_config" : {"background_color": BLACK}
@@ -37,4 +41,12 @@ class Logo(Scene):
 
         return VGroup(circle_logo_right_corner, text2)
 
+    def fechamento(self):
+        self.play(Write(texto_final_1), run_time = 3)
+
+        self.wait(3)
+
+        self.play(FadeOut(texto_final_1), run_time = 0.5)
+
+        self.play(Write(texto_final_2), run_time = 3)
 
