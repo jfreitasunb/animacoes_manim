@@ -704,7 +704,7 @@ class Start(Scene):
 
             self.play(Write(bottom_text), **{"run_time": 1.2})
 
-            self.wait()
+            self.wait(2)
 
             self.remove(bottom_text)
 
