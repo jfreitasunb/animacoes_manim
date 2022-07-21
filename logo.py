@@ -50,3 +50,4 @@ class Logo(Scene):
 
         self.play(Write(texto_final_2), run_time = 3)
 
+        self.wait(5)
