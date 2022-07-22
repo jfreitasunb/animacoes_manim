@@ -30,7 +30,7 @@ augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 texto_br = False
 
 if texto_br == True:
-    title = Tex(r"Encontre a solução do sistema linear, onde $x, $y$ e $z \in \mathbb{R}$:")
+    title = Tex(r"Encontre a solução do sistema linear, onde $x$, $y$ e $z \in \mathbb{R}$:")
 
     subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordam para encontrar a solução do sistema.")
 
@@ -76,7 +76,7 @@ if texto_br == True:
 
     passo_13b = Tex(r"está na forma linha reduzida à forma em escada. Com isso\\ o sistema admite uma única solução que será:")
 else:
-    title = Tex(r"Find the solution of the linear system, where $x, $y$ and $z \in \mathbb{R}$:")
+    title = Tex(r"Find the solution of the linear system, where $x$, $y$ and $z \in \mathbb{R}$:")
 
     subtitle = Tex(r"We are going to apply the Gauss-Jordan Algorithm\\ to find the solution of the linear system.")
 
