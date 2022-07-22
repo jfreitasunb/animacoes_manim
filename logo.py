@@ -24,9 +24,9 @@ circle_logo.set_fill()
 
 circle_logo.set_color(GREEN)
 
-circle_logo_right_corner = circle_logo.copy().scale(0.3)
+circle_logo_right_corner = circle_logo.copy().scale(0.2)
 
-texto_logo_right_corner = texto_logo.copy().scale(0.3)
+texto_logo_right_corner = texto_logo.copy().scale(0.2)
 
 texto_final_1 = Tex(r"Thanks for watching!", color=RED, font_size=100)
 
@@ -46,7 +46,7 @@ class Logo(Scene):
     def logo_right_corner():
         circle_logo_right_corner.to_corner(DOWN + RIGHT)
 
-text2 = texto_logo_right_corner.next_to(circle_logo_right_corner, 0 , buff = 1)
+        text2 = texto_logo_right_corner.next_to(circle_logo_right_corner, 0 , buff = 1)
 
         return VGroup(circle_logo_right_corner, text2)
 
