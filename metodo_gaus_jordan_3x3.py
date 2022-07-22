@@ -4,11 +4,11 @@ import os
 sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
 from logo import Logo as l
 
-first_eqn = MathTex("3", "x_{1}", "+", "1", "y_{1}", "-", "2", "z_{1}", "=", "7")
+first_eqn = MathTex("3", "x", "+", "1", "y", "-", "2", "z", "=", "7")
 
-second_eqn = MathTex("1", "x_{1}", "-", "3", "y_{1}", "+", "4", "z_{1}", "=", "15")
+second_eqn = MathTex("1", "x", "-", "3", "y", "+", "4", "z", "=", "15")
 
-third_eqn = MathTex("2", "x_{1}", "-", "2", "y_{1}", "+", "1", "z_{1}", "=", "12")
+third_eqn = MathTex("2", "x", "-", "2", "y", "+", "1", "z", "=", "12")
 
 equations_array = [first_eqn, second_eqn, third_eqn]
 
