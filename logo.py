@@ -24,9 +24,9 @@ circle_logo.set_fill()
 
 circle_logo.set_color(GREEN)
 
-circle_logo_right_corner = circle_logo.copy().scale(0.2)
+circle_logo_right_corner = circle_logo.copy().scale(0.1)
 
-texto_logo_right_corner = texto_logo.copy().scale(0.2)
+texto_logo_right_corner = texto_logo.copy().scale(0.1)
 
 texto_final_1 = Tex(r"Thanks for watching!", color=RED, font_size=100)
 
