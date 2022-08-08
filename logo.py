@@ -2,11 +2,17 @@ from manim import *
 
 text = VGroup()
 
-text1 = Tex(r"$\Sigma$", color=RED,font_size=174)
+text1_br = Text("J", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
 
-text2 = Text("Math", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+text2_br = Text("A", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
 
-text3 = Text("Exercicises", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+text3_br = Text("F", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+
+text1_en = Tex(r"$\Sigma$", color=RED,font_size=174)
+
+text2_en = Text("Math", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
+
+text3_en = Text("Exercicises", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
 
 text.add(text2, text3)
 
