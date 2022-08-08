@@ -24,6 +24,10 @@ texto_logo_en = VGroup()
 
 texto_logo_en.add(text1_en, text_en)
 
+texto_logo_br = VGroup()
+
+texto_logo_br.add(text1_br, text2_br, text3_br)
+
 circle_logo = Circle(fill_opacity=5).scale(2.2)
 
 circle_logo.set_fill()
@@ -34,9 +38,16 @@ circle_logo_right_corner = circle_logo.copy().scale(0.1)
 
 texto_logo_en_right_corner = texto_logo_en.copy().scale(0.1)
 
-texto_final_1_en = Tex(r"Thanks for watching!", color=RED, font_size=100)
+texto_logo_br_right_corner = texto_logo_en.copy().scale(0.1)
 
-texto_final_2_en = Tex(r"Don't forget to like,\\ share and subscribe!", color=RED, font_size=100)
+texto_final_1_en = tex(r"thanks for watching!", color=red, font_size=100)
+
+texto_final_2_en = tex(r"don't forget to like,\\ share and subscribe!", color=red, font_size=100)
+
+texto_final_1_br = tex(r"Obrigado por assistir!", color=red, font_size=100)
+
+texto_final_2_br = tex(r"Se gostou, deixe seu like,\\ compartilhe e se inscreva!", color=red, font_size=100)
+
 
 class Logo(Scene):
     CONFIG = {
