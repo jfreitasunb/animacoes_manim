@@ -4,10 +4,11 @@ import os
 sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
 from logo import Logo as l
 
-#####Define o idioma do vídeo######################################
+#####Define o idioma do vídeo###########################################
 
 texto_br =  True
 
+#####Define as equações do sistema######################################
 first_eqn = MathTex("3", "x", "+", "1", "y", "-", "2", "z", "=", "7")
 
 second_eqn = MathTex("1", "x", "-", "3", "y", "+", "4", "z", "=", "15")
