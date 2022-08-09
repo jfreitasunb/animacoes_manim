@@ -19,7 +19,6 @@ text_en.add(text2_en, text3_en)
 text_en.arrange(DOWN, center = False, aligned_edge = LEFT)
 
 text_en.next_to(text1_en, RIGHT)
-
 texto_logo_en = VGroup()
 
 texto_logo_en.add(text1_en, text_en)
@@ -40,13 +39,13 @@ texto_logo_en_right_corner = texto_logo_en.copy().scale(0.1)
 
 texto_logo_br_right_corner = texto_logo_en.copy().scale(0.1)
 
-texto_final_1_en = tex(r"thanks for watching!", color=red, font_size=100)
+texto_final_1_en = Tex("thanks for watching!", color=RED, font_size=100)
 
-texto_final_2_en = tex(r"don't forget to like,\\ share and subscribe!", color=red, font_size=100)
+texto_final_2_en = Tex(r"don't forget to like,\\ share and subscribe!", color=RED, font_size=100)
 
-texto_final_1_br = tex(r"Obrigado por assistir!", color=red, font_size=100)
+texto_final_1_br = Tex(r"Obrigado por assistir!", color=RED, font_size=100)
 
-texto_final_2_br = tex(r"Se gostou, deixe seu like,\\ compartilhe e se inscreva!", color=red, font_size=100)
+texto_final_2_br = Tex(r"Se gostou, deixe seu like,\\ compartilhe e se inscreva!", color=RED, font_size=100)
 
 
 class Logo(Scene):
@@ -54,14 +53,20 @@ class Logo(Scene):
         "camera_config" : {"background_color": BLACK}
     }
 
-    def logo_principal(idioma = "en"):
+    def logo_principal(self, idioma = "en"):
 
         if (idioma == "en"):
             texto = texto_logo_en.next_to(circle_logo, 0, buff=1).scale(0.9)
         else:
             texto = texto_logo_br.next_to(circle_logo, 0, buff=1).scale(0.9)
 
-        return VGroup(circle_logo, texto)
+        self.play(DrawBorderThenFill(circle_logo), Write(texto, **{"run_time" : 6}))
+
+        self.wait(2)
+
+        self.play(FadeOut(circle_logo),FadeOut(texto, **{"run_time":0.75}))
+
+        self.wait(2)
 
     def logo_right_corner(idioma = "en"):
         circle_logo_right_corner.to_corner(DOWN + RIGHT)
