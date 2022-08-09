@@ -46,12 +46,12 @@ class Logo(Scene):
         "camera_config" : {"background_color": BLACK}
     }
 
-    def logo_principal(self, idioma = "en"):
+    def logo_principal(self, texto_br):
 
-        if (idioma == "en"):
-            texto = texto_logo_en.next_to(circle_logo, 0, buff=1).scale(0.9)
-        else:
+        if (texto_br == True):
             texto = text_br.next_to(circle_logo, 0, buff=1).scale(0.9)
+        else:
+            texto = texto_logo_en.next_to(circle_logo, 0, buff=1).scale(0.9)
 
         self.play(DrawBorderThenFill(circle_logo), Write(texto, **{"run_time" : 6}))
 
