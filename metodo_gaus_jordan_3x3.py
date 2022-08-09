@@ -4,6 +4,10 @@ import os
 sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
 from logo import Logo as l
 
+#####Define o idioma do vídeo######################################
+
+texto_br =  True
+
 first_eqn = MathTex("3", "x", "+", "1", "y", "-", "2", "z", "=", "7")
 
 second_eqn = MathTex("1", "x", "-", "3", "y", "+", "4", "z", "=", "15")
@@ -27,7 +31,6 @@ for eqn in equations_array:
 augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
 ####Textos presentes no vídeo############
-texto_br = False
 
 if texto_br == True:
     title = Tex(r"Encontre a solução do sistema linear, onde $x$, $y$ e $z \in \mathbb{R}$:")
