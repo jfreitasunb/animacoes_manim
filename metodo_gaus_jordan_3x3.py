@@ -707,4 +707,4 @@ class Start(Scene):
 
         l.logo_right_corner(self, texto_br)
 
-        l.fechamento(self)
+        l.fechamento(self, texto_br)
