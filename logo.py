@@ -4,7 +4,6 @@ text_en = VGroup()
 
 text_br = Text("JAF", font="Tex Gyre Chorus", slant=ITALIC, font_size = 158)
 
-
 text1_en = Tex(r"$\Sigma$", color=RED,font_size=174)
 
 text2_en = Text("Math", font="Tex Gyre Chorus", slant=ITALIC, font_size = 58)
@@ -16,6 +15,7 @@ text_en.add(text2_en, text3_en)
 text_en.arrange(DOWN, center = False, aligned_edge = LEFT)
 
 text_en.next_to(text1_en, RIGHT)
+
 texto_logo_en = VGroup()
 
 texto_logo_en.add(text1_en, text_en)
@@ -40,7 +40,6 @@ texto_final_1_br = Tex(r"Obrigado por assistir!", color=RED, font_size=100)
 
 texto_final_2_br = Tex(r"Se gostou, deixe seu like,\\ compartilhe e se inscreva!", color=RED, font_size=100)
 
-
 class Logo(Scene):
     CONFIG = {
         "camera_config" : {"background_color": BLACK}
@@ -62,6 +61,7 @@ class Logo(Scene):
         self.wait(2)
 
     def logo_right_corner(self, texto_br):
+
         circle_logo_right_corner.to_corner(DOWN + RIGHT)
 
         if (texto_br == True) :
