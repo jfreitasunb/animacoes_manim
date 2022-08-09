@@ -130,7 +130,7 @@ class Start(Scene):
     def construct(self):
         l.logo_principal(self, idioma="br")
 
-        self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
+        l.logo_right_corner(self, texto_br)
 
         VGroup(title, equations).arrange(DOWN)
 
