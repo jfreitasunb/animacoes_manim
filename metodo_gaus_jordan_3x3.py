@@ -128,7 +128,7 @@ def finishScene(self):
 
 class Start(Scene):
     def construct(self):
-        l.logo_principal(self, idioma="br")
+        l.logo_principal(self, texto_br)
 
         l.logo_right_corner(self, texto_br)
 
