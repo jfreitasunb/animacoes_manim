@@ -32,9 +32,9 @@ texto_logo_en_right_corner = texto_logo_en.copy().scale(0.1)
 
 texto_logo_br_right_corner = text_br.copy().scale(0.1)
 
-texto_final_1_en = Tex("thanks for watching!", color=RED, font_size=100)
+texto_final_1_en = Tex("Thanks for watching!", color=RED, font_size=100)
 
-texto_final_2_en = Tex(r"don't forget to like,\\ share and subscribe!", color=RED, font_size=100)
+texto_final_2_en = Tex(r"Don't forget to like,\\ share and subscribe!", color=RED, font_size=100)
 
 texto_final_1_br = Tex(r"Obrigado por assistir!", color=RED, font_size=100)
 
