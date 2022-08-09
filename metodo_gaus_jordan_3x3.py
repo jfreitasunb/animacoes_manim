@@ -128,13 +128,7 @@ def finishScene(self):
 
 class Start(Scene):
     def construct(self):
-        self.play(DrawBorderThenFill(l.logo_principal()[0]), Write(l.logo_principal()[1]), **{"run_time" : 6})
-
-        self.wait(2)
-
-        self.play(FadeOut(l.logo_principal()[0]), FadeOut(l.logo_principal()[1]), **{"run_time":0.75})
-
-        self.wait(2)
+        l.logo_principal(self, idioma="br")
 
         self.add(l.logo_right_corner()[0], l.logo_right_corner()[1])
 
