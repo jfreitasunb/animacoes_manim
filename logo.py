@@ -58,15 +58,20 @@ class Logo(Scene):
 
         if (idioma == "en"):
             texto = texto_logo_en.next_to(circle_logo, 0, buff=1).scale(0.9)
-            return VGroup(circle_logo, texto)
+        else:
+            texto = texto_logo_br.next_to(circle_logo, 0, buff=1).scale(0.9)
+
+        return VGroup(circle_logo, texto)
 
     def logo_right_corner(idioma = "en"):
         circle_logo_right_corner.to_corner(DOWN + RIGHT)
 
         if (idioma == "en"):
             text2 = texto_logo_en_right_corner.next_to(circle_logo_right_corner, 0 , buff = 1)
+        else:
+            text2 = texto_logo_br_right_corner.next_to(circle_logo_right_corner, 0 , buff = 1)
 
-            return VGroup(circle_logo_right_corner, text2)
+        return VGroup(circle_logo_right_corner, text2)
 
     def fechamento(self, idioma = "en"):
 
@@ -80,12 +85,12 @@ class Logo(Scene):
 
             self.play(Write(texto_final_2_en), run_time = 3)
         else:
-            self.play(Write(texto_final_1_en), run_time = 3)
+            self.play(Write(texto_final_1_br), run_time = 3)
 
             self.wait(3)
 
-            self.play(FadeOut(texto_final_1_en), run_time = 0.5)
+            self.play(FadeOut(texto_final_1_br), run_time = 0.5)
 
-            self.play(Write(texto_final_2_en), run_time = 3)
+            self.play(Write(texto_final_2_br), run_time = 3)
 
         self.wait(5)
