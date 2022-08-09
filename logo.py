@@ -71,18 +71,10 @@ class Logo(Scene):
 
         self.add(circle_logo_right_corner, text2)
 
-    def fechamento(self, idioma = "en"):
+    def fechamento(self, texto_br):
 
-        if (idioma == "en"):
+        if (texto_br == True):
 
-            self.play(Write(texto_final_1_en), run_time = 3)
-
-            self.wait(3)
-
-            self.play(FadeOut(texto_final_1_en), run_time = 0.5)
-
-            self.play(Write(texto_final_2_en), run_time = 3)
-        else:
             self.play(Write(texto_final_1_br), run_time = 3)
 
             self.wait(3)
@@ -90,5 +82,13 @@ class Logo(Scene):
             self.play(FadeOut(texto_final_1_br), run_time = 0.5)
 
             self.play(Write(texto_final_2_br), run_time = 3)
+        else:
+            self.play(Write(texto_final_1_en), run_time = 3)
+
+            self.wait(3)
+
+            self.play(FadeOut(texto_final_1_en), run_time = 0.5)
+
+            self.play(Write(texto_final_2_en), run_time = 3)
 
         self.wait(5)
