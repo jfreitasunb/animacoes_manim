@@ -36,7 +36,7 @@ augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 if texto_br == True:
     title = Tex(r"Encontre a solução do sistema linear, onde $x$, $y$ e $z \in \mathbb{R}$:")
 
-    subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordam\\ para encontrar a solução do sistema.")
+    subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordan\\ para encontrar a solução do sistema.")
 
     primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
 
