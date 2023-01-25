@@ -15,7 +15,7 @@ equations_array = [first_eqn, second_eqn, third_eqn]
 equations = MobjectMatrix(
     [[first_eqn], [second_eqn], [third_eqn]],
     left_bracket="\\{",
-    right_bracket="\\")
+    right_bracket="\\}")
 
 for eqn in equations_array:
     eqn.set_color_by_tex_to_color_map({
