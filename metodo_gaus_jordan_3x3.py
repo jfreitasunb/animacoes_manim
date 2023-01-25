@@ -3,6 +3,8 @@ import sys
 import os
 sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
 from logo import Logo as l
+import time
+start_time = time.time()
 
 #####Define o idioma do vídeo###########################################
 
@@ -712,3 +714,5 @@ class Start(Scene):
         l.logo_right_corner(self, texto_br)
 
         l.fechamento(self, texto_br)
+
+print("--- %s seconds ---" % (time.time() - start_time))
