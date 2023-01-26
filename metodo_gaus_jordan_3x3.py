@@ -715,4 +715,6 @@ class Start(Scene):
 
         l.fechamento(self, texto_br)
 
-print("--- %s seconds ---" % (time.time() - start_time))
+        print("--- %s seconds ---" % (time.time() - start_time))
+
+#--- 305.4907124042511 seconds ---
