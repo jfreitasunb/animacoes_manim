@@ -44,9 +44,9 @@ if texto_br == True:
 
     primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
 
-    passo_1 = Tex(r"Como esse coeficiente já é 1,")
+    passo_1 = Tex(r"Como esse coeficiente já é 1, vamos zerar os coeficiente")
 
-    passo_1a = Tex(r"vamos zerar os coeficiente\\ na primeira coluna que estão abaixo do 1.")
+    passo_1a = Tex(r"na primeira coluna que estão abaixo do 1.")
 
     passo_2a = Tex(r"Começamos multiplicando a primeira linha por 5.")
 
@@ -221,11 +221,11 @@ class Start(Scene):
 
         self.play(Write(passo_1), **{"run_time": 3})
 
-        self.wait(3)
+        self.wait(1.5)
 
         self.play(FadeOut(primeira_entrada))
 
-        passo_1a.shift(DOWN*2.5)
+        passo_1a.shift(DOWN*2.6)
 
         coluna1 = SurroundingRectangle(coefficient_matrix.get_columns()[0], color=BLUE)
 
@@ -270,7 +270,7 @@ class Start(Scene):
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
 
-        rref_matrix_p1.to_corner(corner=UP + LEFT, buff=0.5)
+        rref_matrix_p1.next_to(arrow, RIGHT)
 
         for i in VGroup(*rref_matrix_p1)[1:]:
             self.play(Write(i))
