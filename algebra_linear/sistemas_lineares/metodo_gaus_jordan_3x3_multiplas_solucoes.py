@@ -9,11 +9,11 @@ from logo import Logo as l
 texto_br =  True
 
 #####Define as equações do sistema######################################
-first_eqn = MathTex("1", "x_1", "+", "2", "x_2", "-", "3", "x_3", "=", "4")
+first_eqn = MathTex("1", "x_1", "+", "2", "x_2", "+", "3", "x_3", "=", "4")
 
 second_eqn = MathTex("5", "x_1", "+", "6", "x_2", "+", "7", "x_3", "=", "8")
 
-third_eqn = MathTex("8", "x_1", "+", "9", "x_2", "+", "10", "x_3", "=", "12")
+third_eqn = MathTex("9", "x_1", "+", "9", "x_2", "+", "10", "x_3", "=", "12")
 
 equations_array = [first_eqn, second_eqn, third_eqn]
 
@@ -169,7 +169,7 @@ class Start(Scene):
         self.play(FadeOut(primeiro_passo), run_time=3)
 
         coefficient_matrix = Matrix(
-            [("1", "2", "3", "4"), ("5", "6", "7", "8"), ("9", "19", "11", "12")]
+            [("1", "2", "3", "4"), ("5", "6", "7", "8"), ("9", "10", "11", "12")]
         )
         
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
