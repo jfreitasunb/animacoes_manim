@@ -353,6 +353,8 @@ class Start(Scene):
 
         arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
+        arrow.next_to(rref_matrix_p1, RIGHT)
+
         self.play(Create(arrow), **{"run_time":0.4})
 
         self.add(arrow)
@@ -372,7 +374,6 @@ class Start(Scene):
 
         for i in VGroup(*rref_matrix_p2)[1:]:
             self.play(Write(i))
-
 
         text=Text("-9.  +    =  ", font_size=36)
         text.shift(DOWN*2.8 + LEFT*3.5)
