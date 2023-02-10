@@ -56,17 +56,17 @@ if texto_br == True:
 
     passo_3b = Tex(r"E somamos com a terceira linha.")
 
-    passo_5 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por 1/10.")
+    passo_4 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a segunda linha por -1/4.")
 
-    passo_6= Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
+    passo_5 = Tex(r"Agora vamos zerar os coeficiente \\ na segunda coluna que estão abaixo e acima do 1.")
 
-    passo_7a = Tex(r"Começamos multiplicando a segunda linha por 3.")
+    passo_6a = Tex(r"Começamos multiplicando a segunda linha por -2.")
 
-    passo_7b = Tex(r"E somamos com a primeira linha.")
+    passo_6b = Tex(r"E somamos com a primeira linha.")
 
-    passo_8a = Tex(r"Agora vamos multiplicar a segunda linha por -4.")
+    passo_7a = Tex(r"Agora vamos multiplicar a segunda linha por 8.")
 
-    passo_8b = Tex(r"E somamos com a terceira linha.")
+    passo_7b = Tex(r"E somamos com a terceira linha.")
 
     passo_9 = Tex(r"Como esse coeficiente é diferente de 1 \\ vamos multiplicar a terceira linha por -5/7.")
 
@@ -428,107 +428,187 @@ class Start(Scene):
 
         self.add(primeira_entrada_segunda_linha)
 
-        # passo_5.shift(DOWN*1.8)
+        passo_4.shift(DOWN*1.4)
 
-        # self.play(Write(passo_5), **{"run_time":3})
+        # self.play(Write(passo_4), **{"run_time": 3})
 
-        # self.wait()
+        self.add(passo_4)
 
-        # self.play(FadeOut(passo_5), FadeOut(primeira_entrada_segunda_linha), **{"run_time": 0.25})
+        # self.wait(2)
 
-        # rref_matrix_p3 = Matrix(
-        #     [("1", "-3", "4", "15"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.6)
+        # self.play(FadeOut(passo_4), FadeOut(primeira_entrada_segunda_linha), **{"run_time": 0.25})
 
-        # rref_matrix_p2_temp = VGroup(*VGroup(*rref_matrix_p2)[0]).copy()
+        self.remove(passo_4, primeira_entrada_segunda_linha)
 
-        # rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0])
+        rref_matrix_p3 = Matrix(
+            [("1", "2", "3", "4"), ("0", "1", "2", "3"), ("0", "-8", "-16", "-24")])
 
-        # arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        rref_matrix_p2_temp = VGroup(*VGroup(*rref_matrix_p2)[0]).copy()
 
-        # arrow.next_to(rref_matrix_p2, RIGHT)
+        rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0])
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p2, RIGHT)
 
         # self.play(Create(arrow), **{"run_time":0.4})
 
-        # rref_matrix_p3.next_to(rref_matrix_p1, DOWN)
+        self.add(arrow)
 
-        # for i in VGroup(*rref_matrix_p3)[1:]:
-        #     self.play(Write(i))
+        rref_matrix_p3.next_to(rref_matrix_p1, DOWN)
 
-        # for i in range(0,12):
-        #     rref_matrix_p3_flat[i].set_color(augmented_matrix_colors[i%4])
-        #     self.play(Transform(rref_matrix_p2_temp[i], rref_matrix_p3_flat[i]), **{"run_time": 0.75})
+        for i in VGroup(*rref_matrix_p3)[1:]:
+            # self.play(Write(i))
+            self.add(i)
 
-        # separator5 = Line(LEFT*3.1 + DOWN*1.5, LEFT*3.1 + UP*0.7, color=YELLOW)
+        text=Text("(-1/4).       =   ", font_size=36)
+
+        text.shift(DOWN*2.8 + LEFT*3.5)
+
+        for i in range(0,12):
+            rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
+            # if i >= 4 and i < 8:
+
+            #     entrada_11 = rref_matrix_p1.get_entries()[i].copy()
+
+            #     entrada_1 = rref_matrix_p1.get_entries()[i].copy()
+
+            #     entrada_1.to_corner(DOWN*2.09 + LEFT*7.6)
+
+            #     resultado_operacao = rref_matrix_p3_flat[i].copy()
+
+            #     resultado_operacao.to_corner(DOWN*2.09 + LEFT*10.2)
+
+            #     self.play(Write(text), **{"run_time": 2})
+
+            #     self.play(Transform(entrada_11, entrada_1), **{"run_time": 0.75})
+
+            #     self.play(Write(resultado_operacao), **{"run_time": 2})
+
+            #     self.play(Transform(resultado_operacao.copy(), rref_matrix_p3_flat[i]), **{"run_time": 1})
+
+            #     self.wait(2)
+
+            #     self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(resultado_operacao),  **{"run_time": 0})
+            # else:
+                # self.play(Transform(rref_matrix_p2_flat[i].copy(), rref_matrix_p3_flat[i]), **{"run_time": 0.75})
+            self.add(rref_matrix_p3_flat[i])
+
+        separator5 = Line(LEFT*3.4 + DOWN*1.4, LEFT*3.4 + UP, color=YELLOW)
 
         # self.play(Create(separator5), **{"run_time": 0.25})
 
-        # passo_6.shift(DOWN*2.5)
+        self.add(separator5)
 
-        # coluna2 = SurroundingRectangle(rref_matrix_p3.get_columns()[1], color=BLUE)
+        passo_5.shift(DOWN*2.5)
 
-        # self.play(Create(coluna2), Write(passo_6), **{"run_time": 3})
+        coluna2 = SurroundingRectangle(rref_matrix_p3.get_columns()[1], color=BLUE)
 
-        # self.wait(3)
+        # self.play(Create(coluna2), Write(passo_5), **{"run_time": 3})
 
-        # self.play(FadeOut(passo_6), FadeOut(coluna2), **{"run_time": 0.25})
+        self.add(coluna2, passo_5)
 
-        # passo_7a.shift(DOWN*2.5)
+        self.wait(3)
 
-        # linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
+        self.play(FadeOut(passo_5), FadeOut(coluna2), **{"run_time": 0.25})
 
-        # self.play(Write(passo_7a), Create(linha2p7), **{"run_time": 3})
+        passo_6a.shift(DOWN*2.5)
 
-        # self.wait(3)
+        linha2p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[1], color=BLUE)
 
-        # passo_7b.shift(DOWN*3)
+        self.play(Write(passo_6a), Create(linha2p7), **{"run_time": 3})
 
-        # linha1p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[0], color=BLUE)
+        self.wait(3)
 
-        # self.play(ReplacementTransform(linha2p7,linha1p7), Write(passo_7b), **{"run_time": 3})
+        passo_6b.shift(DOWN*3)
 
-        # self.wait(3)
+        linha1p7 = SurroundingRectangle(rref_matrix_p3.get_rows()[0], color=BLUE)
 
-        # self.play(FadeOut(linha1p7), FadeOut(passo_7a), FadeOut(passo_7b), **{"run_time": 0.25})
+        self.play(ReplacementTransform(linha2p7,linha1p7), Write(passo_6b), **{"run_time": 3})
 
-        # rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
+        self.wait(3)
 
-        # rref_matrix_p4 = Matrix(
-        #     [("1", "0", "-1/5", "18/5"), ("0", "1", "-7/5", "-19/5"), ("0", "4", "-7", "-18")], h_buff=1.7)
+        self.play(FadeOut(linha1p7), FadeOut(passo_6a), FadeOut(passo_6b), **{"run_time": 0.25})
 
-        # rref_matrix_p4_flat = VGroup(*VGroup(*rref_matrix_p4)[0])
+        rref_matrix_p3_flat = VGroup(*VGroup(*rref_matrix_p3)[0]).copy()
 
-        # arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        rref_matrix_p4 = Matrix(
+            [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "-8", "-16", "-24")])
 
-        # arrow.next_to(rref_matrix_p3, RIGHT)
+        rref_matrix_p4_flat = VGroup(*VGroup(*rref_matrix_p4)[0])
+
+        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+
+        arrow.next_to(rref_matrix_p3, RIGHT)
 
         # self.play(Create(arrow), **{"run_time":0.4})
 
-        # rref_matrix_p4.next_to(arrow, RIGHT)
+        self.add(arrow)
 
-        # for i in VGroup(*rref_matrix_p4)[1:]:
-        #     self.play(Write(i))
+        rref_matrix_p4.next_to(arrow, RIGHT)
 
-        # for i in range(0,12):
-        #     rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
-        #     self.play(Transform(rref_matrix_p3_flat[i], rref_matrix_p4_flat[i]), **{"run_time": 0.75})
+        for i in VGroup(*rref_matrix_p4)[1:]:
+            # self.play(Write(i))
+            self.add(i)
 
-        # separator6 = Line(RIGHT*4.4 + DOWN*1.5, RIGHT*4.4 + UP*0.7, color=YELLOW)
+        text=Text("(-2).   +   =   ", font_size=36)
 
-        # self.play(Create(separator6), **{"run_time": 0.25})
+        text.shift(DOWN*2.8 + LEFT*3.5)
 
-        # passo_8a.shift(DOWN*2.3)
+        for i in range(0,12):
+            rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
+            # if i >= 0 and i < 4:
+
+            #     entrada_11 = rref_matrix_p3.get_entries()[i+4].copy()
+
+            #     entrada_1 = rref_matrix_p3.get_entries()[i+4].copy()
+
+            #     entrada_1.to_corner(DOWN*2.09 + LEFT*6.9)
+
+            #     entrada_2 = rref_matrix_p3.get_entries()[i].copy()
+
+            #     entrada_22 = rref_matrix_p3.get_entries()[i].copy()
+
+            #     entrada_2.to_corner(DOWN*2.09 + LEFT*8.5)
+
+            #     resultado_operacao = rref_matrix_p4_flat[i].copy()
+
+            #     resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.7)
+
+            #     self.play(Write(text), **{"run_time": 2})
+
+            #     self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
+
+            #     self.play(Write(resultado_operacao), **{"run_time": 2})
+
+            #     self.play(Transform(resultado_operacao.copy(), rref_matrix_p4_flat[i]), **{"run_time": 1})
+
+            #     self.wait(2)
+
+            #     self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+            # else:
+            #     self.play(Transform(rref_matrix_p3_flat[i].copy(), rref_matrix_p4_flat[i]), **{"run_time": 0.75})
+            self.add(rref_matrix_p4_flat[i])
+
+        separator6 = Line(RIGHT*3 + DOWN*1.3, RIGHT*3 + UP*1, color=YELLOW)
+
+        self.play(Create(separator6), **{"run_time": 0.25})
+
+        self.wait(3)
+
+        # passo_7a.shift(DOWN*2.3)
 
         # linha2p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[1], color=BLUE)
 
-        # self.play(Write(passo_8a), Create(linha2p8), **{"run_time": 3})
+        # self.play(Write(passo_7a), Create(linha2p8), **{"run_time": 3})
 
         # self.wait(3)
 
-        # passo_8b.shift(DOWN*2.8)
+        # passo_7b.shift(DOWN*2.8)
 
         # linha3p8 = SurroundingRectangle(rref_matrix_p4.get_rows()[2], color=BLUE)
 
-        # self.play(ReplacementTransform(linha2p8,linha3p8), Write(passo_8b), **{"run_time": 3})
+        # self.play(ReplacementTransform(linha2p8,linha3p8), Write(passo_7b), **{"run_time": 3})
 
         # self.wait(3)
 
