@@ -138,35 +138,35 @@ class Start(Scene):
     def construct(self):
         # l.logo_principal(self, texto_br)
 
-        l.logo_right_corner(self, texto_br)
+        # l.logo_right_corner(self, texto_br)
 
-        VGroup(title, equations).arrange(DOWN)
+        # VGroup(title, equations).arrange(DOWN)
 
-        self.play(
-            Write(title),
-            FadeIn(equations, shift=UP),
-        )
-        self.wait()
+        # self.play(
+        #     Write(title),
+        #     FadeIn(equations, shift=UP),
+        # )
+        # self.wait()
 
-        self.add(equations)
+        # self.add(equations)
 
-        self.play(title.animate.scale(0.8).to_corner(corner=UP*0.1 + LEFT, buff=0.5))
+        # self.play(title.animate.scale(0.8).to_corner(corner=UP*0.1 + LEFT, buff=0.5))
 
-        self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
+        # self.play(equations.animate.scale(0.8).to_corner(corner=UP + LEFT, buff=0.5))
 
-        self.wait(1)
+        # self.wait(1)
 
-        self.play(Write(subtitle), run_time = 5)
+        # self.play(Write(subtitle), run_time = 5)
 
-        self.wait(3)
+        # self.wait(3)
 
-        self.play(FadeOut(subtitle), run_time=1.5)
+        # self.play(FadeOut(subtitle), run_time=1.5)
 
-        self.play(Write(primeiro_passo), run_time = 5)
+        # self.play(Write(primeiro_passo), run_time = 5)
 
-        self.wait(3)
+        # self.wait(3)
 
-        self.play(FadeOut(primeiro_passo), run_time=3)
+        # self.play(FadeOut(primeiro_passo), run_time=3)
 
         coefficient_matrix = Matrix(
             [("1", "2", "3", "4"), ("5", "6", "7", "8"), ("9", "10", "11", "12")]
@@ -174,171 +174,171 @@ class Start(Scene):
 
         coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
 
-        for i in VGroup(*coefficient_matrix)[1:]:
-            self.play(Write(i))
+        # for i in VGroup(*coefficient_matrix)[1:]:
+        #     self.play(Write(i))
 
-        self.wait()
+        # self.wait()
 
-        toFade = []
+        # toFade = []
 
-        for (variable) in range(0,4):
-            for (eqnz) in range(0,3):
-                resultant = variable + 4 * eqnz
+        # for (variable) in range(0,4):
+        #     for (eqnz) in range(0,3):
+        #         resultant = variable + 4 * eqnz
 
-                which_eqn = third_eqn
+        #         which_eqn = third_eqn
 
-                if eqnz == 0:
-                    which_eqn = first_eqn
-                elif eqnz == 1:
-                    which_eqn = second_eqn
+        #         if eqnz == 0:
+        #             which_eqn = first_eqn
+        #         elif eqnz == 1:
+        #             which_eqn = second_eqn
 
-                toFade.append(which_eqn[variable*3].copy())
+        #         toFade.append(which_eqn[variable*3].copy())
 
-                self.play(Transform(toFade[-1], coefficient_matrix_flat[resultant]), **{"run_time":0.75})
+        #         self.play(Transform(toFade[-1], coefficient_matrix_flat[resultant]), **{"run_time":0.75})
 
-        for fade in toFade:
-            self.remove(fade)
+        # for fade in toFade:
+        #     self.remove(fade)
 
-        self.play(ApplyMethod(coefficient_matrix.shift, LEFT*3.5))
+        # self.play(ApplyMethod(coefficient_matrix.shift, LEFT*3.5))
 
-        separator1 = Line(LEFT*2.2 + UP*1.1, LEFT*2.2 + DOWN*1.1, color=YELLOW)
+        # separator1 = Line(LEFT*2.2 + UP*1.1, LEFT*2.2 + DOWN*1.1, color=YELLOW)
 
-        separator2 = Line(RIGHT*4.2 + UP*1.1, RIGHT*4.2 + DOWN*1.1, color=YELLOW)
+        # separator2 = Line(RIGHT*4.2 + UP*1.1, RIGHT*4.2 + DOWN*1.1, color=YELLOW)
 
-        self.play(Create(separator1), **{"run_time":0.15})
+        # self.play(Create(separator1), **{"run_time":0.15})
 
-        for i in range(0,4):
-            for j in range(0,3):
-                self.play(VGroup(*VGroup(*coefficient_matrix)[0])[i+4*j].animate.set_color(augmented_matrix_colors[i]),**{"run_time": 0.1})
+        # for i in range(0,4):
+        #     for j in range(0,3):
+        #         self.play(VGroup(*VGroup(*coefficient_matrix)[0])[i+4*j].animate.set_color(augmented_matrix_colors[i]),**{"run_time": 0.1})
 
-        coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
+        # coefficient_matrix_flat = VGroup(*VGroup(*coefficient_matrix)[0]).copy()
 
-        primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0], color=RED)
+        # primeira_entrada = SurroundingRectangle(coefficient_matrix.get_entries()[0], color=RED)
 
-        self.play(Create(primeira_entrada))
+        # self.play(Create(primeira_entrada))
 
-        passo_1.shift(DOWN*1.8)
+        # passo_1.shift(DOWN*1.8)
 
-        self.play(Write(passo_1), **{"run_time": 3})
+        # self.play(Write(passo_1), **{"run_time": 3})
 
-        self.wait(1.5)
+        # self.wait(1.5)
 
-        self.play(FadeOut(primeira_entrada))
+        # self.play(FadeOut(primeira_entrada))
 
-        passo_1a.shift(DOWN*2.6)
+        # passo_1a.shift(DOWN*2.6)
 
-        coluna1 = SurroundingRectangle(coefficient_matrix.get_columns()[0], color=BLUE)
+        # coluna1 = SurroundingRectangle(coefficient_matrix.get_columns()[0], color=BLUE)
 
-        self.play(Create(coluna1), **{"run_time": 0.4})
+        # self.play(Create(coluna1), **{"run_time": 0.4})
 
-        self.play(Write(passo_1a), **{"run_time": 3})
+        # self.play(Write(passo_1a), **{"run_time": 3})
 
-        self.wait(2)
+        # self.wait(2)
 
-        self.play(FadeOut(passo_1), FadeOut(passo_1a), FadeOut(coluna1), **{"run_time": 0.25})
+        # self.play(FadeOut(passo_1), FadeOut(passo_1a), FadeOut(coluna1), **{"run_time": 0.25})
 
-        passo_2a.shift(DOWN*1.8)
+        # passo_2a.shift(DOWN*1.8)
 
-        self.play(Write(passo_2a), **{"run_time": 3})
+        # self.play(Write(passo_2a), **{"run_time": 3})
 
-        linha1p3 = SurroundingRectangle(coefficient_matrix.get_rows()[0], color=BLUE)
+        # linha1p3 = SurroundingRectangle(coefficient_matrix.get_rows()[0], color=BLUE)
 
-        self.play(Create(linha1p3), **{"run_time": 3})
+        # self.play(Create(linha1p3), **{"run_time": 3})
 
-        self.wait(3)
+        # self.wait(3)
 
-        passo_2b.shift(DOWN*2.5)
+        # passo_2b.shift(DOWN*2.5)
 
-        linha2p3 = SurroundingRectangle(coefficient_matrix.get_rows()[1], color=BLUE)
+        # linha2p3 = SurroundingRectangle(coefficient_matrix.get_rows()[1], color=BLUE)
 
-        self.play(ReplacementTransform(linha1p3, linha2p3), Write(passo_2b),**{"run_time":3})
+        # self.play(ReplacementTransform(linha1p3, linha2p3), Write(passo_2b),**{"run_time":3})
 
-        self.wait(3)
+        # self.wait(3)
 
-        self.play(FadeOut(passo_2a), FadeOut(passo_2b), FadeOut(linha2p3), **{"run_time": 0.25})
+        # self.play(FadeOut(passo_2a), FadeOut(passo_2b), FadeOut(linha2p3), **{"run_time": 0.25})
 
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        # arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
-        arrow.next_to(coefficient_matrix, RIGHT)
+        # arrow.next_to(coefficient_matrix, RIGHT)
 
-        self.play(Create(arrow), **{"run_time":0.4})
+        # self.play(Create(arrow), **{"run_time":0.4})
 
-        self.wait(2)
+        # self.wait(2)
 
         rref_matrix_p1 = Matrix(
             [("1", "2", "3", "4"), ("0", "-4", "-8", "-12"), ("9", "10", "11", "12")])
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0])
 
-        rref_matrix_p1.next_to(arrow, RIGHT)
+        # rref_matrix_p1.next_to(arrow, RIGHT)
 
-        for i in VGroup(*rref_matrix_p1)[1:]:
-            self.play(Write(i))
+        # for i in VGroup(*rref_matrix_p1)[1:]:
+        #     self.play(Write(i))
 
-        text=Text("-5.  +  = ", font_size=36)
-        text.shift(DOWN*2.8 + LEFT*3.5)
+        # text=Text("-5.  +  = ", font_size=36)
+        # text.shift(DOWN*2.8 + LEFT*3.5)
 
-        for i in range(0,12):
-            rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
-            if i >= 4 and i < 8:
+        # for i in range(0,12):
+        #     rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
+        #     if i >= 4 and i < 8:
 
-                entrada_11 = coefficient_matrix.get_entries()[i-4].copy()
+        #         entrada_11 = coefficient_matrix.get_entries()[i-4].copy()
 
-                entrada_1 = coefficient_matrix.get_entries()[i-4].copy()
+        #         entrada_1 = coefficient_matrix.get_entries()[i-4].copy()
 
-                entrada_1.to_corner(DOWN*2.09 + LEFT*6.7)
+        #         entrada_1.to_corner(DOWN*2.09 + LEFT*6.7)
 
-                entrada_2 = coefficient_matrix.get_entries()[i].copy()
+        #         entrada_2 = coefficient_matrix.get_entries()[i].copy()
 
-                entrada_22 = coefficient_matrix.get_entries()[i].copy()
+        #         entrada_22 = coefficient_matrix.get_entries()[i].copy()
 
-                entrada_2.to_corner(DOWN*2.09 + LEFT*8)
+        #         entrada_2.to_corner(DOWN*2.09 + LEFT*8)
 
-                resultado_operacao = rref_matrix_p1_flat[i].copy()
+        #         resultado_operacao = rref_matrix_p1_flat[i].copy()
 
-                resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.3)
+        #         resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.3)
 
-                self.play(Write(text), **{"run_time": 2})
+        #         self.play(Write(text), **{"run_time": 2})
 
-                self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
+        #         self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
 
-                self.play(Write(resultado_operacao), **{"run_time": 2})
+        #         self.play(Write(resultado_operacao), **{"run_time": 2})
 
-                self.play(Transform(resultado_operacao.copy(), rref_matrix_p1_flat[i]), **{"run_time": 1})
+        #         self.play(Transform(resultado_operacao.copy(), rref_matrix_p1_flat[i]), **{"run_time": 1})
 
-                self.wait(2)
+        #         self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0.2})
-            else:
-                self.play(Transform(coefficient_matrix_flat[i], rref_matrix_p1_flat[i]), **{"run_time": 0.75})
+        #         self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0.2})
+        #     else:
+        #         self.play(Transform(coefficient_matrix_flat[i], rref_matrix_p1_flat[i]), **{"run_time": 0.75})
 
-        separator2 = Line(RIGHT*4 + UP*1.1, RIGHT*4 + DOWN*1.1, color=YELLOW)
+        # separator2 = Line(RIGHT*4 + UP*1.1, RIGHT*4 + DOWN*1.1, color=YELLOW)
 
-        self.play(Create(separator2), **{"run_time": 0.25})
+        # self.play(Create(separator2), **{"run_time": 0.25})
 
-        passo_3a.shift(DOWN*1.8)
+        # passo_3a.shift(DOWN*1.8)
 
-        linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
+        # linha1p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[0], color=BLUE)
 
-        self.play(Write(passo_3a), Create(linha1p4), **{"run_time": 3})
+        # self.play(Write(passo_3a), Create(linha1p4), **{"run_time": 3})
 
-        self.wait(3)
+        # self.wait(3)
 
-        passo_3b.shift(DOWN*2.5)
+        # passo_3b.shift(DOWN*2.5)
 
-        linha3p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[2], color=BLUE)
+        # linha3p4 = SurroundingRectangle(rref_matrix_p1.get_rows()[2], color=BLUE)
 
-        self.play(ReplacementTransform(linha1p4,linha3p4), Write(passo_3b), **{"run_time": 3})
+        # self.play(ReplacementTransform(linha1p4,linha3p4), Write(passo_3b), **{"run_time": 3})
 
-        self.wait(3)
+        # self.wait(3)
 
-        self.play(FadeOut(linha3p4), FadeOut(passo_3a), FadeOut(passo_3b), **{"run_time": 0.25})
+        # self.play(FadeOut(linha3p4), FadeOut(passo_3a), FadeOut(passo_3b), **{"run_time": 0.25})
 
-        self.play(
-             *[FadeOut(mob)for mob in self.mobjects]
-         )
+        # self.play(
+        #      *[FadeOut(mob)for mob in self.mobjects]
+        #  )
 
-        l.logo_right_corner(self, texto_br)
+        # l.logo_right_corner(self, texto_br)
 
         rref_matrix_p1_flat = VGroup(*VGroup(*rref_matrix_p1)[0]).copy()
 
@@ -355,7 +355,7 @@ class Start(Scene):
 
         arrow.next_to(rref_matrix_p1, RIGHT)
 
-        self.play(Create(arrow), **{"run_time":0.4})
+        # self.play(Create(arrow), **{"run_time":0.4})
 
         self.add(arrow)
 
@@ -368,61 +368,65 @@ class Start(Scene):
         for i in range(0,12):
             rref_matrix_p1_flat[i].set_color(augmented_matrix_colors[i%4])
 
-            self.play(Write(rref_matrix_p1_flat[i]), **{"run_time": 0.75})
+            # self.play(Write(rref_matrix_p1_flat[i]), **{"run_time": 0.75})
 
-        self.wait(3)
+            self.add(rref_matrix_p1_flat[i])
+
+        # self.wait(3)
 
         for i in VGroup(*rref_matrix_p2)[1:]:
-            self.play(Write(i))
+            # self.play(Write(i))
+            self.add(i)
 
         text=Text("-9.  +    =  ", font_size=36)
         text.shift(DOWN*2.8 + LEFT*3.5)
 
         for i in range(0,12):
             rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
-            if i >= 8 and i < 12:
+            # if i >= 8 and i < 12:
 
-                entrada_11 = rref_matrix_p1.get_entries()[i-8].copy()
+            #     entrada_11 = rref_matrix_p1.get_entries()[i-8].copy()
 
-                entrada_1 = rref_matrix_p1.get_entries()[i-8].copy()
+            #     entrada_1 = rref_matrix_p1.get_entries()[i-8].copy()
 
-                entrada_1.to_corner(DOWN*2.09 + LEFT*6.5)
+            #     entrada_1.to_corner(DOWN*2.09 + LEFT*6.5)
 
-                entrada_2 = rref_matrix_p1.get_entries()[i].copy()
+            #     entrada_2 = rref_matrix_p1.get_entries()[i].copy()
 
-                entrada_22 = rref_matrix_p1.get_entries()[i].copy()
+            #     entrada_22 = rref_matrix_p1.get_entries()[i].copy()
 
-                entrada_2.to_corner(DOWN*2.09 + LEFT*7.8)
+            #     entrada_2.to_corner(DOWN*2.09 + LEFT*7.8)
 
-                resultado_operacao = rref_matrix_p2_flat[i].copy()
+            #     resultado_operacao = rref_matrix_p2_flat[i].copy()
 
-                resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.6)
+            #     resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.6)
 
-                self.play(Write(text), **{"run_time": 2})
+            #     self.play(Write(text), **{"run_time": 2})
 
-                self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
+            #     self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
 
-                self.play(Write(resultado_operacao), **{"run_time": 2})
+            #     self.play(Write(resultado_operacao), **{"run_time": 2})
 
-                self.play(Transform(resultado_operacao.copy(), rref_matrix_p2_flat[i]), **{"run_time": 1})
+            #     self.play(Transform(resultado_operacao.copy(), rref_matrix_p2_flat[i]), **{"run_time": 1})
 
-                self.wait(2)
+            #     self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
-            else:
-                self.play(Transform(rref_matrix_p1_flat[i].copy(), rref_matrix_p2_flat[i]), **{"run_time": 0.75})
+            #     self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+            # else:
+                # self.play(Transform(rref_matrix_p1_flat[i].copy(), rref_matrix_p2_flat[i]), **{"run_time": 0.75})
+            self.add(rref_matrix_p2_flat[i])
 
-        # for i in range(0,12):
-        #     rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
-        #     self.play(Transform(rref_matrix_p1_flat[i], rref_matrix_p2_flat[i]), **{"run_time": 0.75})
-
-        # separator4 = Line(RIGHT*3.2 + UP*3.4, RIGHT*3.2 + UP*1.1, color=YELLOW)
+        separator4 = Line(RIGHT*2.9 + UP*3.6, RIGHT*2.9 + UP*1.4, color=YELLOW)
 
         # self.play(Create(separator4), **{"run_time": 0.25})
 
-        # primeira_entrada_segunda_linha = SurroundingRectangle(rref_matrix_p2.get_entries()[5], color=RED)
+        self.add(separator4)
+
+        primeira_entrada_segunda_linha = SurroundingRectangle(rref_matrix_p2.get_entries()[5], color=RED)
 
         # self.play(Create(primeira_entrada_segunda_linha))
+
+        self.add(primeira_entrada_segunda_linha)
 
         # passo_5.shift(DOWN*1.8)
 
