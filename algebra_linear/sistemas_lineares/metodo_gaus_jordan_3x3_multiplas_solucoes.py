@@ -68,13 +68,15 @@ if texto_br == True:
 
     passo_7b = Tex(r"E somamos com a terceira linha.")
 
-    passo_8a = Tex(r"A matriz resultante desse último passo")
+    passo_8a = Tex(r"A matriz resultante desse último passo,")
 
     passo_8b = Tex(r"está na forma linha reduzida à forma em escada.")
 
     passo_8c = Tex(r"Observe que a última linha é nula,")
 
     passo_8d = Tex(r"com isso o sistema admite múltiplas soluções.")
+
+    passo_8e = Tex(r"Vamos encontrar essas soluções.")
 else:
     title = Tex(r"Find the solution of the linear system, where $x$, $y$ and $z \in \mathbb{R}$:")
 
@@ -674,7 +676,7 @@ class Start(Scene):
 
         self.play(Write(passo_8a), **{"run_time":3})
 
-        passo_8b.shift(DOWN*2)
+        passo_8b.shift(DOWN*0.8)
 
         self.play(Write(passo_8b), **{"run_time":3})
 
@@ -684,9 +686,13 @@ class Start(Scene):
 
         self.play(Write(passo_8c), Create(linha3pf), **{"run_time": 3})
 
+        passo_8d.shift(DOWN*0.8)
+
         self.play(Write(passo_8d), **{"run_time": 3})
 
+        self.play(FadeOut(passo_8c), FadeOut(passo_8d), **{"run_time": 0.74})
 
+        self.play(Write(passo_8e), **{"run_time": 3})
 
         # rref_matrix_p8 = Matrix(
         #     [("1", "0", "0", "4"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
