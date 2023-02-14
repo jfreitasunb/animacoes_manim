@@ -33,6 +33,12 @@ for eqn in equations_array:
         "x_3": BLUE,
     })
 
+x1= Tex("$x_1$", color=RED)
+
+x2= Tex("$x_2$", color=GREEN)
+
+x3= Tex("$x_3$", color=BLUE)
+
 augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 
 ####Textos presentes no vídeo############
@@ -77,6 +83,20 @@ if texto_br == True:
     passo_8d = Tex(r"com isso o sistema admite múltiplas soluções.")
 
     passo_8e = Tex(r"Vamos encontrar essas soluções.")
+
+    passo_9a = Tex(r"Na matriz abaixo:")
+
+    passo_9b = Tex(r"as três primeiras colunas representam as incógnitas do sistema.")
+
+    passo_9c = Tex(r"Da segunda linha dessa matriz obtemos a equação:")
+
+    passo_9d = Tex(r"que pode ser escrita como: ")
+
+    passo_10a = Tex(r"$x_2 + 2x_3 = 3$")
+
+    passo_10b = Tex(r"$x_2 = 3 - 2x_3$")
+
+    passo_10c = Tex(r"as três primeiras colunas representam as incógnitas do sistema.")
 else:
     title = Tex(r"Find the solution of the linear system, where $x$, $y$ and $z \in \mathbb{R}$:")
 
@@ -594,125 +614,171 @@ class Start(Scene):
 
         # l.logo_right_corner(self, texto_br)
 
-        rref_matrix_p5 = Matrix(
-            [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "-8", "-16", "-24")])
+        #rref_matrix_p5 = Matrix(
+        #    [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "-8", "-16", "-24")])
 
-        rref_matrix_p5_flat = VGroup(*VGroup(*rref_matrix_p5)[0])
+        #rref_matrix_p5_flat = VGroup(*VGroup(*rref_matrix_p5)[0])
 
-        rref_matrix_p5.to_corner(corner=UP + LEFT)
+        #rref_matrix_p5.to_corner(corner=UP + LEFT)
 
-        for i in VGroup(*rref_matrix_p5)[1:]:
-            self.play(Write(i))
+        #for i in VGroup(*rref_matrix_p5)[1:]:
+        #    self.play(Write(i))
 
-        for i in range(0,12):
-            rref_matrix_p5_flat[i].set_color(augmented_matrix_colors[i%4])
-            self.play(Write(rref_matrix_p5_flat[i]), **{"run_time": 0.75})
+        #for i in range(0,12):
+        #    rref_matrix_p5_flat[i].set_color(augmented_matrix_colors[i%4])
+        #    self.play(Write(rref_matrix_p5_flat[i]), **{"run_time": 0.75})
 
-        separator7 = Line(LEFT*3.15 + UP*3.4, LEFT*3.15 + UP*1.1, color=YELLOW)
+        #separator7 = Line(LEFT*3.15 + UP*3.4, LEFT*3.15 + UP*1.1, color=YELLOW)
 
-        self.play(Create(separator7), **{"run_time": 0.25})
+        #self.play(Create(separator7), **{"run_time": 0.25})
 
-        self.wait(2)
+        #self.wait(2)
 
-        arrow = Arrow(LEFT*0.9, RIGHT*0.5)
+        #arrow = Arrow(LEFT*0.9, RIGHT*0.5)
 
-        arrow.next_to(rref_matrix_p5, RIGHT)
+        #arrow.next_to(rref_matrix_p5, RIGHT)
 
-        self.play(Create(arrow), **{"run_time":0.4})
+        #self.play(Create(arrow), **{"run_time":0.4})
 
-        rref_matrix_p6 = Matrix(
+        #rref_matrix_p6 = Matrix(
+        #    [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "0", "0", "0")])
+
+        #rref_matrix_p6_flat = VGroup(*VGroup(*rref_matrix_p6)[0])
+
+        #rref_matrix_p6.next_to(arrow, RIGHT)
+
+        #for i in VGroup(*rref_matrix_p6)[1:]:
+        #    self.play(Write(i))
+
+        #text=Text("8.   +       =  ", font_size=36)
+
+        #text.shift(DOWN*2.8 + LEFT*3.5)
+
+        #for i in range(0,12):
+        #    rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
+        #    if i >= 8 and i < 12:
+
+        #        entrada_11 = rref_matrix_p5.get_entries()[i-4].copy()
+
+        #        entrada_1 = rref_matrix_p5.get_entries()[i-4].copy()
+
+        #        entrada_1.to_corner(DOWN*2.09 + LEFT*5.8)
+
+        #        entrada_2 = rref_matrix_p5.get_entries()[i].copy()
+
+        #        entrada_22 = rref_matrix_p5.get_entries()[i].copy()
+
+        #        entrada_2.to_corner(DOWN*2.09 + LEFT*7.5)
+
+        #        resultado_operacao = rref_matrix_p6_flat[i].copy()
+
+        #        resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.9)
+
+        #        self.play(Write(text), **{"run_time": 2})
+
+        #        self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
+
+        #        self.play(Write(resultado_operacao), **{"run_time": 2})
+
+        #        self.play(Transform(resultado_operacao.copy(), rref_matrix_p6_flat[i]), **{"run_time": 1})
+
+        #        self.wait(2)
+
+        #        self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+        #    else:
+        #        self.play(Transform(rref_matrix_p5_flat[i].copy(), rref_matrix_p6_flat[i]), **{"run_time": 0.75})
+
+        #separator8 = Line(RIGHT*3.5 + UP*3.4, RIGHT*3.5 + UP*1.1, color=YELLOW)
+
+        #self.play(Create(separator8), **{"run_time": 0.25})
+
+        #self.wait(3)
+
+        #self.play(Write(passo_8a), **{"run_time":3})
+
+        #passo_8b.shift(DOWN*0.8)
+
+        #self.play(Write(passo_8b), **{"run_time":3})
+
+        #self.play(FadeOut(passo_8a), FadeOut(passo_8b), **{"run_time": 0.74})
+
+        #linha3pf = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
+
+        #self.play(Write(passo_8c), Create(linha3pf), **{"run_time": 3})
+
+        #passo_8d.shift(DOWN*0.8)
+
+        #self.play(Write(passo_8d), **{"run_time": 3})
+
+        #self.play(FadeOut(passo_8c), FadeOut(passo_8d), **{"run_time": 0.74})
+
+        #self.play(Write(passo_8e), **{"run_time": 3})
+
+        #self.play(
+        #     *[FadeOut(mob)for mob in self.mobjects]
+        #)
+
+        rref_matrix_p7 = Matrix(
             [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "0", "0", "0")])
 
-        rref_matrix_p6_flat = VGroup(*VGroup(*rref_matrix_p6)[0])
+        rref_matrix_p7_flat = VGroup(*VGroup(*rref_matrix_p7)[0])
 
-        rref_matrix_p6.next_to(arrow, RIGHT)
+        passo_9a.shift(UP*2.5)
 
-        for i in VGroup(*rref_matrix_p6)[1:]:
-            self.play(Write(i))
+        self.play(Write(passo_9a), **{"run_time": 3})
 
-        text=Text("8.   +       =  ", font_size=36)
-
-        text.shift(DOWN*2.8 + LEFT*3.5)
+        for i in VGroup(*rref_matrix_p7)[1:]:
+             self.play(Write(i))
 
         for i in range(0,12):
-            rref_matrix_p4_flat[i].set_color(augmented_matrix_colors[i%4])
-            if i >= 8 and i < 12:
+             rref_matrix_p7_flat[i].set_color(augmented_matrix_colors[i%4])
+             self.play(Write(rref_matrix_p7_flat[i]), **{"run_time": 0.75})
 
-                entrada_11 = rref_matrix_p5.get_entries()[i-4].copy()
+        separator11 = Line(RIGHT*1.2 + DOWN, RIGHT*1.2 + UP*1.05, color=YELLOW)
 
-                entrada_1 = rref_matrix_p5.get_entries()[i-4].copy()
+        self.play(Create(separator11), **{"run_time":0.15})
 
-                entrada_1.to_corner(DOWN*2.09 + LEFT*5.8)
+        passo_9b.shift(DOWN*2)
 
-                entrada_2 = rref_matrix_p5.get_entries()[i].copy()
+        self.play(Write(passo_9b), **{"run_time": 3})
 
-                entrada_22 = rref_matrix_p5.get_entries()[i].copy()
+        x1.shift(UP*1.25 + LEFT*1.9)
 
-                entrada_2.to_corner(DOWN*2.09 + LEFT*7.5)
+        x2.shift(UP*1.25 + LEFT*0.7)
 
-                resultado_operacao = rref_matrix_p6_flat[i].copy()
+        x3.shift(UP*1.25 + RIGHT*0.55)
 
-                resultado_operacao.to_corner(DOWN*2.09 + LEFT*9.9)
+        self.play(Write(x1), Write(x2), Write(x3), **{"run_time": 0.25})
 
-                self.play(Write(text), **{"run_time": 2})
+        self.wait(5)
 
-                self.play(Transform(entrada_11, entrada_1), Transform(entrada_22, entrada_2), **{"run_time": 0.75})
+        self.play(FadeOut(passo_9b), **{"run_time": 0.5})
 
-                self.play(Write(resultado_operacao), **{"run_time": 2})
+        passo_9c.shift(DOWN*2)
 
-                self.play(Transform(resultado_operacao.copy(), rref_matrix_p6_flat[i]), **{"run_time": 1})
+        passo_9d.shift(DOWN*3.2+LEFT*2.3)
 
-                self.wait(2)
+        passo_10a.shift(DOWN*2.7)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
-            else:
-                self.play(Transform(rref_matrix_p5_flat[i].copy(), rref_matrix_p6_flat[i]), **{"run_time": 0.75})
+        passo_10b.shift(DOWN*3.2+RIGHT*2.3)
 
-        separator8 = Line(RIGHT*3.5 + UP*3.4, RIGHT*3.5 + UP*1.1, color=YELLOW)
+        row2 = SurroundingRectangle(rref_matrix_p7.get_rows()[1])
 
-        self.play(Create(separator8), **{"run_time": 0.25})
+        self.play(Write(passo_9c), Create(row2), **{"run_time": 1.75})
+
+        self.play(Write(passo_10a), **{"run_time": 1.75})
 
         self.wait(3)
 
-        self.play(Write(passo_8a), **{"run_time":3})
+        self.play(Write(passo_9d), **{"run_time": 1.75})
 
-        passo_8b.shift(DOWN*0.8)
+        self.play(Transform(passo_10a.copy(), passo_10b), **{"run_time": 1.75})
 
-        self.play(Write(passo_8b), **{"run_time":3})
+        #passo_9e.shift(DOWN*2)
 
-        self.play(FadeOut(passo_8a), FadeOut(passo_8b), **{"run_time": 0.74})
+        #row3 = SurroundingRectangle(rref_matrix_p7.get_rows()[2])
 
-        linha3pf = SurroundingRectangle(rref_matrix_p6.get_rows()[2], color=BLUE)
-
-        self.play(Write(passo_8c), Create(linha3pf), **{"run_time": 3})
-
-        passo_8d.shift(DOWN*0.8)
-
-        self.play(Write(passo_8d), **{"run_time": 3})
-
-        self.play(FadeOut(passo_8c), FadeOut(passo_8d), **{"run_time": 0.74})
-
-        self.play(Write(passo_8e), **{"run_time": 3})
-
-        # rref_matrix_p8 = Matrix(
-        #     [("1", "0", "0", "4"), ("0", "1", "0", "-1"), ("0", "0", "1", "2")], h_buff=1.5)
-
-        # rref_matrix_p8_flat = VGroup(*VGroup(*rref_matrix_p8)[0])
-
-        # rref_matrix_p8.shift(UP)
-
-        # for i in VGroup(*rref_matrix_p8)[1:]:
-        #     self.play(Write(i))
-
-        # for i in range(0,12):
-        #     rref_matrix_p8_flat[i].set_color(augmented_matrix_colors[i%4])
-        #     self.play(Write(rref_matrix_p8_flat[i]), **{"run_time": 0.75})
-
-        # separator11 = Line(RIGHT*1.5 + DOWN*0.1, RIGHT*1.5 + UP*2.1, color=YELLOW)
-
-        # self.play(Create(separator11), **{"run_time":0.15})
-
-        # self.wait(5)
+        #self.play(Write(passo_9e), Create(row3), **{"run_time": 1.75})
 
         # for i in range(0,3):
         #     row = SurroundingRectangle(rref_matrix_p8.get_rows()[i])
