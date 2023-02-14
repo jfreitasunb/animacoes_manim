@@ -475,7 +475,7 @@ class Start(Scene):
         text.shift(DOWN*2.8 + LEFT*3.5)
 
         for i in range(0,12):
-            rref_matrix_p2_flat[i].set_color(augmented_matrix_colors[i%4])
+            rref_matrix_p3_flat[i].set_color(augmented_matrix_colors[i%4])
             if i >= 4 and i < 8:
 
                 entrada_11 = rref_matrix_p1.get_entries()[i].copy()
