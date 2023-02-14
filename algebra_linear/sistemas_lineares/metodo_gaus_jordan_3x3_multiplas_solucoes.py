@@ -96,7 +96,9 @@ if texto_br == True:
 
     passo_10b = Tex(r"$x_2 = 3 - 2x_3$")
 
-    passo_10c = Tex(r"as três primeiras colunas representam as incógnitas do sistema.")
+    passo_10c = Tex(r"$x_1 - x_3 = -2$")
+
+    passo_10d = Tex(r"$x_1 = -2 + x_3$")
 else:
     title = Tex(r"Find the solution of the linear system, where $x$, $y$ and $z \in \mathbb{R}$:")
 
@@ -772,7 +774,19 @@ class Start(Scene):
 
         self.play(Write(passo_9d), **{"run_time": 1.75})
 
-        self.play(Transform(passo_10a.copy(), passo_10b), **{"run_time": 1.75})
+        self.play(Transform(passo_10a.copy(), passo_10b), replace_mobject_with_target_in_scene = True, **{"run_time": 1.75})
+
+        self.wait(5)
+
+        self.play(FadeOut(passo_9c), FadeOut(passo_9d), FadeOut(passo_10a), FadeOut(passo_10b), **{"run_time": 1.75})
+
+        passo_temp1 = passo_10b.copy()
+
+        passo_temp1.to_edge(UP + LEFT)
+
+        self.play(Write(passo_temp1))
+
+        self.wait(5)
 
         #passo_9e.shift(DOWN*2)
 
