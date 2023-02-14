@@ -9,11 +9,11 @@ from logo import Logo as l
 texto_br =  True
 
 #####Define as equações do sistema######################################
-first_eqn = MathTex("1", "x_1", "+", "2", "x_2", "+", "3", "x_3", "=", "4")
+first_eqn = MathTex("\phantom{0}1", "x_1", "+", "\phantom{0}2", "x_2", "+", "\phantom{0}3", "x_3", "=", "\phantom{0}4")
 
-second_eqn = MathTex("5", "x_1", "+", "6", "x_2", "+", "7", "x_3", "=", "8")
+second_eqn = MathTex("\phantom{0}5", "x_1", "+", "\phantom{0}6", "x_2", "+", "\phantom{0}7", "x_3", "=", "\phantom{0}8")
 
-third_eqn = MathTex("9", "x_1", "+", "10", "x_2", "+", "11", "x_3", "=", "12")
+third_eqn = MathTex("\phantom{0}9", "x_1", "+", "10", "x_2", "+", "11", "x_3", "=", "12")
 
 equations_array = [first_eqn, second_eqn, third_eqn]
 
@@ -46,11 +46,11 @@ augmented_matrix_colors = [RED, GREEN, BLUE, TEAL]
 if texto_br == True:
     title = Tex(r"Encontre a solução do sistema linear, onde $x_1$, $x_2$ e $x_3 \in \mathbb{R}$:")
 
-    subtitle = Tex(r"Vamos usar o Método de eliminação de Gauss-Jordan\\ para encontrar a solução do sistema.")
+    subtitle = Tex(r"Vamos usar o método de eliminação de Gauss-Jordan\\ para encontrar a solução do sistema.")
 
     primeiro_passo = Tex(r"Primeiro montamos a matriz amplidada do sistema:")
 
-    passo_1 = Tex(r"Como esse coeficiente já é 1, vamos zerar os coeficiente")
+    passo_1 = Tex(r"Como esse coeficiente já é 1, vamos zerar os coeficientes")
 
     passo_1a = Tex(r"na primeira coluna que estão abaixo do 1.")
 
