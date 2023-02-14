@@ -728,103 +728,103 @@ class Start(Scene):
         #     *[FadeOut(mob)for mob in self.mobjects]
         #)
 
-        #rref_matrix_p7 = Matrix(
-        #    [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "0", "0", "0")])
+        rref_matrix_p7 = Matrix(
+            [("1", "0", "-1", "-2"), ("0", "1", "2", "3"), ("0", "0", "0", "0")])
 
-        #rref_matrix_p7_flat = VGroup(*VGroup(*rref_matrix_p7)[0])
+        rref_matrix_p7_flat = VGroup(*VGroup(*rref_matrix_p7)[0])
 
-        #passo_9a.shift(UP*2.5)
+        passo_9a.shift(UP*2.5)
 
-        #self.play(Write(passo_9a), **{"run_time": 3})
+        self.play(Write(passo_9a), **{"run_time": 3})
 
-        #for i in VGroup(*rref_matrix_p7)[1:]:
-        #     self.play(Write(i))
+        for i in VGroup(*rref_matrix_p7)[1:]:
+             self.play(Write(i))
 
-        #for i in range(0,12):
-        #     rref_matrix_p7_flat[i].set_color(augmented_matrix_colors[i%4])
-        #     self.play(Write(rref_matrix_p7_flat[i]), **{"run_time": 0.75})
+        for i in range(0,12):
+             rref_matrix_p7_flat[i].set_color(augmented_matrix_colors[i%4])
+             self.play(Write(rref_matrix_p7_flat[i]), **{"run_time": 0.75})
 
-        #separator11 = Line(RIGHT*1.2 + DOWN, RIGHT*1.2 + UP*1.05, color=YELLOW)
+        separator11 = Line(RIGHT*1.2 + DOWN, RIGHT*1.2 + UP*1.05, color=YELLOW)
 
-        #self.play(Create(separator11), **{"run_time":0.15})
+        self.play(Create(separator11), **{"run_time":0.15})
 
-        #passo_9b.shift(DOWN*2)
+        passo_9b.shift(DOWN*2)
 
-        #self.play(Write(passo_9b), **{"run_time": 3})
+        self.play(Write(passo_9b), **{"run_time": 3})
 
-        #x1.shift(UP*1.25 + LEFT*1.9)
+        x1.shift(UP*1.25 + LEFT*1.9)
 
-        #x2.shift(UP*1.25 + LEFT*0.7)
+        x2.shift(UP*1.25 + LEFT*0.7)
 
-        #x3.shift(UP*1.25 + RIGHT*0.55)
+        x3.shift(UP*1.25 + RIGHT*0.55)
 
-        #self.play(Write(x1), Write(x2), Write(x3), **{"run_time": 0.25})
+        self.play(Write(x1), Write(x2), Write(x3), **{"run_time": 0.25})
 
-        #self.wait(5)
+        self.wait(5)
 
-        #self.play(FadeOut(passo_9b), **{"run_time": 0.5})
+        self.play(FadeOut(passo_9b), **{"run_time": 0.5})
 
-        #passo_9c.shift(DOWN*2)
+        passo_9c.shift(DOWN*2)
 
-        #passo_9d.shift(DOWN*3.2+LEFT*2.3)
+        passo_9d.shift(DOWN*3.2+LEFT*2.5)
 
-        #passo_10a.shift(DOWN*2.7)
+        passo_10a.shift(DOWN*2.7)
 
-        #passo_10b.shift(DOWN*3.2+RIGHT*2.3)
+        passo_10b.shift(DOWN*3.2+RIGHT*2.5)
 
-        #row2 = SurroundingRectangle(rref_matrix_p7.get_rows()[1])
+        row2 = SurroundingRectangle(rref_matrix_p7.get_rows()[1])
 
-        #self.play(Write(passo_9c), Create(row2), **{"run_time": 1.75})
+        self.play(Write(passo_9c), Create(row2), **{"run_time": 1.75})
 
-        #self.play(Write(passo_10a), **{"run_time": 1.75})
+        self.play(Write(passo_10a), **{"run_time": 1.75})
 
-        #self.wait(3)
+        self.wait(3)
 
-        #self.play(Write(passo_9d), **{"run_time": 1.75})
+        self.play(Write(passo_9d), **{"run_time": 1.75})
 
-        #self.play(Transform(passo_10a.copy(), passo_10b), replace_mobject_with_target_in_scene = True, **{"run_time": 1.75})
+        self.play(Transform(passo_10a.copy(), passo_10b), replace_mobject_with_target_in_scene = True, **{"run_time": 1.75})
 
-        #self.wait(5)
+        self.wait(5)
 
-        #self.play(FadeOut(row2), FadeOut(passo_9c), FadeOut(passo_9d), FadeOut(passo_10a), FadeOut(passo_10b), **{"run_time": 1.75})
+        self.play(FadeOut(row2), FadeOut(passo_9c), FadeOut(passo_9d), FadeOut(passo_10a), FadeOut(passo_10b), **{"run_time": 1.75})
 
-        #passo_temp1 = passo_10b.copy()
+        passo_temp1 = passo_10b.copy()
 
-        #passo_temp1.to_edge(UP + LEFT)
+        passo_temp1.to_edge(UP + LEFT)
 
-        #self.play(Write(passo_temp1))
+        self.play(Write(passo_temp1))
 
-        #self.wait(5)
+        self.wait(5)
 
-        #passo_9e.shift(DOWN*2)
+        passo_9e.shift(DOWN*2)
 
-        #passo_10c.shift(DOWN*2.7)
+        passo_10c.shift(DOWN*2.7)
 
-        #passo_10d.shift(DOWN*3.2+RIGHT*2.3)
+        passo_10d.shift(DOWN*3.2+RIGHT*2.5)
 
-        #row3 = SurroundingRectangle(rref_matrix_p7.get_rows()[0])
+        row3 = SurroundingRectangle(rref_matrix_p7.get_rows()[0])
 
-        #self.play(Write(passo_9e), Create(row3), **{"run_time": 1.75})
+        self.play(Write(passo_9e), Create(row3), **{"run_time": 1.75})
 
-        #self.play(Write(passo_10c), **{"run_time": 1.75})
+        self.play(Write(passo_10c), **{"run_time": 1.75})
 
-        #self.wait(3)
+        self.wait(3)
 
-        #self.play(Write(passo_9d), **{"run_time": 1.75})
+        self.play(Write(passo_9d), **{"run_time": 1.75})
 
-        #self.play(Transform(passo_10c.copy(), passo_10d), replace_mobject_with_target_in_scene = True, **{"run_time": 1.75})
+        self.play(Transform(passo_10c.copy(), passo_10d), replace_mobject_with_target_in_scene = True, **{"run_time": 1.75})
 
-        #self.wait(5)
+        self.wait(5)
 
-        #self.play(FadeOut(row3), FadeOut(passo_9a), FadeOut(passo_9e), FadeOut(passo_9d), FadeOut(passo_10c), FadeOut(passo_10d), **{"run_time": 1.75})
+        self.play(FadeOut(row3), FadeOut(passo_9a), FadeOut(passo_9e), FadeOut(passo_9d), FadeOut(passo_10c), FadeOut(passo_10d), **{"run_time": 1.75})
 
-        #passo_temp2 = passo_10d.copy()
+        passo_temp2 = passo_10d.copy()
 
-        #passo_temp2.to_edge(UP*2 + LEFT)
+        passo_temp2.to_edge(UP*2 + LEFT)
 
-        #self.play(Write(passo_temp2))
+        self.play(Write(passo_temp2))
 
-        #self.wait(5)
+        self.wait(5)
 
         #self.play(
         #     *[FadeOut(mob)for mob in self.mobjects]
@@ -832,25 +832,25 @@ class Start(Scene):
 
         # l.logo_right_corner(self, texto_br)
 
-        passo_11a.shift(UP*2)
+       # passo_11a.shift(UP*2)
 
-        self.play(Write(passo_11a), **{"run_time": 2.75})
+        # self.play(Write(passo_11a), **{"run_time": 2.75})
 
-        self.play(FadeIn(equations, shift=UP))
+        # self.play(FadeIn(equations, shift=UP))
 
-        self.add(equations)
+        # self.add(equations)
 
-        passo_11b.shift(DOWN*2)
+        # passo_11b.shift(DOWN*2)
 
-        self.play(Write(passo_11b), **{"run_time": 2.75})
+        # self.play(Write(passo_11b), **{"run_time": 2.75})
 
-        passo_12.shift(DOWN*3.7)
+        # passo_12.shift(DOWN*3.7)
 
-        self.play(Write(passo_12), **{"run_time": 4})
+        # self.play(Write(passo_12), **{"run_time": 4})
 
-        self.wait(10)
+        # self.wait(10)
 
-        finishScene(self)
+        # finishScene(self)
 
         # l.logo_right_corner(self, texto_br)
 
