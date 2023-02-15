@@ -108,51 +108,43 @@ if texto_br == True:
 
     passo_12 = Tex(r"$S = \{x_1, x_2, x_3 \in \mathbb{R} \mid x_1 = -2 + x_3,\ x_2 = 3 - 2x_3\}$")
 else:
-    title = Tex(r"Find the solution of the linear system, where $x$, $y$ and $z \in \mathbb{R}$:")
+    title = Tex(r"Find the solution of the linear system, where $x_1$, $x_2$ and $x_3 \in \mathbb{R}$:")
 
     subtitle = Tex(r"We are going to apply the Gauss-Jordan Algorithm\\ to find the solution of the linear system.")
 
     primeiro_passo = Tex(r"First we write the augmented matrix of the system:")
 
-    passo_1 = Tex(r"This coefficient is different from 1 \\ so we are going to swap the first and second row.")
+    passo_1 = Tex(r"As this coefficient is 1, we are going to cancel the coefficients")
 
-    passo_2= Tex(r"Now lets cancel the coefficients\\ in the first column that are bellow 1.")
+    passo_1a= Tex(r"in the first column that are bellow 1.")
 
-    passo_3a = Tex(r"We start by multiplying the first row by -3.")
+    passo_2a = Tex(r"We start by multiplying the first row by -5.")
 
-    passo_3b = Tex(r"And we add it to the second row.")
+    passo_2b = Tex(r"And we add it to the second row.")
 
-    passo_4a = Tex(r"Now we multiply the first row by -2.")
+    passo_3a = Tex(r"Now we multiply the first row by -9.")
 
-    passo_4b = Tex(r"And we add it to the third row.")
+    passo_3b = Tex(r"And we add it to the third row.")
 
-    passo_5 = Tex(r"This coefficient is different from 1,\\ so we are going to multiply the second row by 1/10.")
+    passo_4 = Tex(r"This coefficient is different from 1,\\ so we are going to multiply the second row by -1/4.")
 
-    passo_6= Tex(r"Now lets cancel the coefficients\\ in the second row that are above and below 1.")
+    passo_5 = Tex(r"Now lets cancel the coefficients\\ in the second row that are above and below 1.")
 
-    passo_7a = Tex(r"We start by multiplying the second row by 3.")
+    passo_6a = Tex(r"We start by multiplying the second row by -2.")
 
-    passo_7b = Tex(r"And we add it to the first row.")
+    passo_6b = Tex(r"And we add it to the first row.")
 
-    passo_8a = Tex(r"Now multiply the second row by -4.")
+    passo_7a = Tex(r"Now multiply the second row by 8.")
 
-    passo_8b = Tex(r"And add it to the third row.")
+    passo_7b = Tex(r"And add it to the third row.")
 
-    passo_9 = Tex(r"This coefficient is different from 1,\\ so we multiply the third row by -5/7.")
+    passo_8a = Tex(r"The matrix resulting from this last step:")
 
-    passo_10 = Tex(r"Lets cancel the coefficients in the third column that are above 1.")
+    passo_8b = Tex(r"is in the reduced row echolon form.")
 
-    passo_11a = Tex(r"Multiply the third row by 7/5.")
+    passo_8c = Tex(r"As the last row the linear is null,"
 
-    passo_11b = Tex(r"And add it to the second row.")
-
-    passo_12a = Tex(r"Then multiply the third row by 1/5.")
-
-    passo_12b = Tex(r"And add it to the first row.")
-
-    passo_13a = Tex(r"The matrix resulting from this last step:")
-
-    passo_13b = Tex(r"is in the reduced row echolon form.\\ Thus, the linear systema admits a unique solution that will be:")
+    passo_8d = Tex(r"the systema admits multiples solutions.")
 
 
 def finishScene(self):
