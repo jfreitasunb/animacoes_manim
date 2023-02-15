@@ -2,7 +2,7 @@ from manim import *
 
 text_en = VGroup()
 
-text_br = Text("JAF", font="Tex Gyre Chorus", slant=ITALIC, font_size = 158)
+text_br = Text("JAF", font="Beyond Wonderland", slant=ITALIC, font_size = 138)
 
 text1_en = Tex(r"$\Sigma$", color=RED,font_size=174)
 
