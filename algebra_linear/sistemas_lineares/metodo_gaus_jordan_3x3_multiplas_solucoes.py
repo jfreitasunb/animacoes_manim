@@ -142,10 +142,25 @@ else:
 
     passo_8b = Tex(r"is in the reduced row echolon form.")
 
-    passo_8c = Tex(r"As the last row the linear is null,"
+    passo_8c = Tex(r"As the last row the linear is null,")
 
     passo_8d = Tex(r"the systema admits multiples solutions.")
 
+    passo_8e = Tex(r"Let's find these solutions.")
+
+    passo_9a = Tex(r"In the matrix:")
+
+    passo_9b = Tex(r"the first three columns are for the variables of the system.")
+
+    passo_9c = Tex(r"From the second row of this matrix we have the equation:")
+
+    passo_9d = Tex(r"that can be writen as: ")
+
+    passo_9e = Tex(r"From the first row of this matrix we have the equation:")
+
+    passo_11a = Tex(r"So the solution of the system")
+
+    passo_11b = Tex(r"is given by the set:")
 
 def finishScene(self):
     self.play(*[FadeOut(mob) for mob in self.mobjects])
