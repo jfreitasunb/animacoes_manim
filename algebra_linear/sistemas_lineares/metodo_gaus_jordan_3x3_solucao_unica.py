@@ -1,7 +1,7 @@
 from manim import *
 import sys
 import os
-sys.path.append(os.path.abspath("/home/jfreitas/GitHub_Repos/animacoes_manim"))
+sys.path.append(os.path.abspath("/home/jfreitas/GitHub/animacoes_manim"))
 from logo import Logo as l
 
 #####Define o idioma do vídeo###########################################
