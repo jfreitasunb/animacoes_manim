@@ -2,7 +2,10 @@ from manim import *
 import sys
 import os
 sys.path.append(os.path.abspath("/home/jfreitas/GitHub/animacoes_manim"))
+import time
 from logo import Logo as l
+
+start = time.time()
 
 #####Define o idioma do vídeo###########################################
 
@@ -439,7 +442,7 @@ class Start(Scene):
 
                 self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0.25})
             else:
                 self.play(Transform(rref_matrix_p1_flat[i].copy(), rref_matrix_p2_flat[i]), **{"run_time": 0.75})
 
@@ -505,7 +508,7 @@ class Start(Scene):
 
                 self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(resultado_operacao),  **{"run_time": 0})
+                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(resultado_operacao),  **{"run_time": 0.25})
             else:
                 self.play(Transform(rref_matrix_p2_flat[i].copy(), rref_matrix_p3_flat[i]), **{"run_time": 0.75})
 
@@ -593,7 +596,7 @@ class Start(Scene):
 
                 self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0.25})
             else:
                 self.play(Transform(rref_matrix_p3_flat[i].copy(), rref_matrix_p4_flat[i]), **{"run_time": 0.75})
 
@@ -705,7 +708,7 @@ class Start(Scene):
 
                 self.wait(2)
 
-                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0})
+                self.play(FadeOut(text), FadeOut(entrada_11), FadeOut(entrada_22), FadeOut(resultado_operacao),  **{"run_time": 0.25})
             else:
                 self.play(Transform(rref_matrix_p5_flat[i].copy(), rref_matrix_p6_flat[i]), **{"run_time": 0.75})
 
@@ -868,3 +871,5 @@ class Start(Scene):
         l.logo_right_corner(self, texto_br)
 
         l.fechamento(self, texto_br)
+
+        print("GPU Render Time: %s seconds" % (str(time.time() - start)))
